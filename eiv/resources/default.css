@@ -1,0 +1,384 @@
+#element {
+  height: calc(100% - 5px)!important;
+  width: calc(100% - 5px)!important;
+  min-width: 400px;
+  display: block;
+  min-height: 50vh;
+}
+#playerContainer{
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  min-width: 195px;
+  transition:flex 0.3s ease-out; // note that we're transitioning flex, not height!
+}
+
+#playerContainerVertical{
+  flex: 1;
+  width: 100%;
+  height: 50%;
+  min-width: 195px;
+}
+
+.video-container { position: relative;  height: 0; overflow: hidden; }
+
+.video-containerVertical {
+  position: relative;
+  padding-top: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-containerVertical object,
+.video-containerVertical embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  background-color: #f1f2f4;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  left: 0;
+  right:0;
+  margin:auto;
+}
+/**
+noch mal div drum herum,damti width immer 100% macht.
+ */
+.interactionContainer {
+  flex: 1;
+  min-width: 200px;
+  width: 40%;
+  max-width: 40%;
+  overflow:auto;
+  height: 97%;
+  margin: 10px;
+  transition:flex 0.3s ease-out; // note that we're transitioning flex, not height!
+}
+.formSection {
+  border-top: 1px solid black;
+  padding-top: 10px !important;
+  margin-top: 10px !important;
+}
+
+
+
+.interactionContainerVertical {
+  flex: 1;
+  min-width: 100px;
+  width:  100%;
+  max-width: 100%;
+  overflow:auto;
+  height: 30%;
+  padding: 10px;
+}
+#fieldset {
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontalMain {
+  display: flex;
+  flex-direction: row;
+}
+.verticalMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.interactionInner{
+  min-height: 0;
+  height: 100%;
+}
+.invisible{
+  display:none;
+}
+
+
+
+slide-in {
+  z-index: 10; /* to position it in front of the other content */
+  position: absolute;
+  overflow: hidden; /* to prevent scrollbar appearing */
+}
+
+.slide-in.from-left {
+  left: 0;
+}
+
+.slide-in.from-right {
+  right: 0;
+}
+
+.slide-in-content {
+  padding: 5px 20px;
+  background: #eee;
+  transition: transform .5s ease; /* our nice transition */
+}
+
+.slide-in.from-left .slide-in-content {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+
+.slide-in.from-right .slide-in-content {
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
+.slide-in.show .slide-in-content {
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+}
+
+
+
+.gap.correct input {
+  background-color: lightgreen;
+}
+
+.gap.nearly input {
+  background-color: lightyellow;
+}
+
+.gap.wrong input {
+  background-color: lightcoral;
+}
+
+
+
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The imageModal (background) */
+.imageModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* imageModal Content (image) */
+.imageModal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of imageModal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.imageModal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .imageModal-content {
+    width: 100%;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.hidden {
+  transform: translateX(-60%);
+}
+
+#playerContainer.collapsed {
+  flex: 0;
+  min-width: 0;
+  min-height: 0;
+}
+#interactionContainer.exanded {
+ min-width: 200px;
+ width: 100%;
+ max-width: 100%;
+}
+#interactionContainer.collapsed {
+flex: 0;
+min-width: 0;
+min-height: 0;
+margin: 0;
+}
+.hidebutton{
+  display: none;
+}
+#interaction iframe{
+  width: 100%;!important;
+  height: 100%;!important;
+}
+.innerRadioQuestion{
+  margin-right: 10px;
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+select.form-control {
+  -webkit-appearance: menulist;
+}
+
+
+
+

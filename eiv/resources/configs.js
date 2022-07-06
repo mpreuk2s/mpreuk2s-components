@@ -1587,7 +1587,7 @@ ccm.files[
                 "timestart": 170
             }
         },
-        "video": "https://www.youtube.com/watch?v=21bnBiL6WWE&ab_channel=OhMyGoal-News",
+        "video": "bHQqvYy5KYo",
         "behavior": "dynamic",
         "layout": "vertical",
         "data": "",

@@ -1,22 +1,6 @@
-value = {
+ccm.files['testAppConfig2.js']= {
     "key": "demo1",
     "css": [ "ccm.load", "https://ccmjs.github.io/akless-components/cloze/resources/default.css" ],
-    "data": {
-        "store": [ "ccm.store", { "name": "cloze_results", "url": "https://ccm2.inf.h-brs.de" } ],
-        "key": "demo1",
-        "login": true,
-        "user": true,
-        "permissions": {
-            "creator": "teacher",
-            "realm": "guest",
-            "group": [ "%user%" ],
-            "access": {
-                "get": "group",
-                "set": "group",
-                "del": "creator"
-            }
-        }
-    },
     "keywords": true,
     "feedback": true,
     "blank": true,

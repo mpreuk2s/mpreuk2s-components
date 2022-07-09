@@ -113,7 +113,7 @@
         Instance: function () {
 
             let $;
-            this.currentICID = null;
+            this.currentICID = 123456789; //random id for start
             let intervalID;
             let stoppedAutomatically = true;
             let mark = "*";
@@ -149,7 +149,7 @@
                     {
                         "tag": "h5",
                         "class": "error",
-                        "inner": "Error while loading interactions."
+                        "inner": "Fehler: Mehrere Interaktionen sind zur selben Zeitpunkt definiert."
                     }
                 ]
             };
@@ -198,7 +198,7 @@
                     case "vertical":
                         this.html.class = this.html.class += " verticalMain";
                         this.html.inner[1].class = "interactionContainerVertical"
-                        //this.html.inner[1].style = "display: none;"
+                        this.html.inner[1].style = "display: none;"
                         this.html.inner[0].id = "playerContainerVertical"
                         this.html.inner[0].class = "video-containerVertical"
                         playerContainerID = "interactionContainerVertical"

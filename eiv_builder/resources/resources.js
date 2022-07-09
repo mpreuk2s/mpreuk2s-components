@@ -44,7 +44,7 @@ ccm.files[ 'resources.js' ] = {
         ]
       ]
     ],
-    "preview": "Preview",
+    "preview": "Vorschau",
     "download": "Download",
     //"onfinish": { "restart": true },
     //"submit": "Submit",

@@ -41,102 +41,102 @@
                     },
                     "vertical": {
                         "key": "vertical",
-                        "title": "Vertical",
+                        "title": "Vertikal",
                         "value": "vertical"
                     },
                 },
                 "behavior": {
                     "static": {
                         "key": "static",
-                        "title": "Static",
+                        "title": "Statisch",
                         "value": "static"
                     },
                     "dynamic": {
                         "key": "dynamic",
-                        "title": "Dynamic",
+                        "title": "Dynamisch",
                         "value": "dynamic"
                     },
                 },
                 "interactionBehavior": {
                     "static": {
                         "key": "singleStop",
-                        "title": "Stop Video",
+                        "title": "Interaktion für ein Zeitpukt",
                         "value": "singleStop"
                     },
                     "dynamic": {
                         "key": "timeframe",
-                        "title": "Don't stop video",
+                        "title": "Interaktion über ein Zeitfenster",
                         "value": "timeframe"
                     },
                 },
                 "interactionType": {
                     "single_answer": {
                         "key": "single_answer",
-                        "title": "single_answer",
+                        "title": "Aufgabe mit einzel Antwort",
                         "value": "single_answer"
                     },
                     "multiple_answer": {
                         "key": "multiple_answer",
-                        "title": "multiple_answer",
+                        "title": "Aufgabe mit Mehrfachauswahl",
                         "value": "multiple_answer"
+                    },
+                    "image": {
+                        "key": "image",
+                        "title": "Bild",
+                        "value": "image"
+                    },
+                    "gaptext": {
+                        "key": "gaptext",
+                        "title": "Aufgabe als Lückentext",
+                        "value": "gaptext"
+                    },
+                    "htmltext": {
+                        "key": "htmltext",
+                        "title": "HTML Text",
+                        "value": "htmltext"
                     },
                     "httpcall": {
                         "key": "httpcall",
-                        "title": "httpcall",
+                        "title": "HTTP Client",
                         "value": "httpcall"
                     },
                     "html": {
                         "key": "html",
-                        "title": "html",
+                        "title": "HTML als Code",
                         "value": "html"
-                    },
-                    "htmltext": {
-                        "key": "htmltext",
-                        "title": "htmltext",
-                        "value": "htmltext"
-                    },
-                    "gaptext": {
-                        "key": "gaptext",
-                        "title": "gaptext",
-                        "value": "gaptext"
-                    },
-                    "image": {
-                        "key": "image",
-                        "title": "image",
-                        "value": "image"
                     },
                     "ccmapp": {
                         "key": "ccmapp",
-                        "title": "ccmapp",
+                        "title": "DMS App/CCM Komponente",
                         "value": "ccmapp"
                     },
                 },
                 "ccmAppTypes": {
                     "DMS": {
                         "key": "DMS",
-                        "title": "DMS",
+                        "title": "DMS App URL",
                         "value": "DMS"
                     },
                     "CCM_App_URL_Config": {
                         "key": "CCM_App_URL_Config",
-                        "title": "CCM_App_URL_Config",
+                        "title": "CCM Komponente",
                         "value": "CCM_App_URL_Config"
                     },
                 },
                 "ccmConfigFileTypes": {
                     "noConfigNeeded": {
                         "key": "noConfigNeeded",
-                        "title": "noConfigNeeded",
+                        "title": "Keine Konfiguration",
                         "value": "noConfigNeeded"
                     },
                     "URL": {
                         "key": "URL",
-                        "title": "URL",
+                        "title": "URL zur Konfigurationsdatei",
                         "value": "URL"
                     },
                     "textinput": {
                         "key": "textinput",
-                        "title": "textinput",
+                        "title": "Textform",
                         "value": "textinput"
                     },
                 },
@@ -268,7 +268,7 @@
              */
             this.render = (config = this.getValue()) => {
                 this.html.render(this.html.main(config, this, events), this.element);
-
+                this.element.querySelector('#eiv-youtubeUrl-btn').value=config.video;
                 this.element.querySelectorAll('.imeditor')
                     .forEach(editor => {
                             this.createEditor(editor)
@@ -294,6 +294,7 @@
             this.getValue = () => {
                 const result = Object.assign({}, config, $.formData(this.element));
                 // const result = Object.assign( {}, config, $.formData( this.element ) );
+                result.video = this.extractVideoID(result.video);
                 editorsMap.forEach((value, key, map) => {
                     let id = this.extractID(key);
                     if (key.includes("gaptext")) {
@@ -352,7 +353,7 @@
                 config.interactions = $.clone(result.interactions)
                 config.behavior = this.ignore.behavior[result.behavior].value;
                 config.layout = this.ignore.layout[result.layout].value;
-
+                config.video=result.video;
                 switch (result.store) {
                     case 'collective':
                         result.onfinish.store = true;
@@ -524,6 +525,28 @@
                 }
             }
 
+            this.extractVideoID= input => {
+                let inputLowerCase = input.toLocaleString();
+                //most cases included
+                if (inputLowerCase.includes("http")
+                    || inputLowerCase.includes("youtu")
+                    || inputLowerCase.includes("www.you")
+                    || inputLowerCase.includes("//")
+                ) {
+                    //https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url
+                    var i, r,
+                        rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+                    try {
+                        return input.match(rx)[1];
+                    }catch (e){
+                        //wenn es failt, videoid input behaltet
+                        this.logger && this.logger.log(e);
+                        return input;
+                    }
+                }
+                return input;
+            }
+
             const events = {
 
                 onDelete: key => {
@@ -599,12 +622,15 @@
                 onAdd: () => {
                     this.collectEditorValues();
                     this.addIC(config.interactions);
+                    this.renderAndReaddEvents();
                 },
                 onDownloadConfig: () => {
                     let result = this.getValue();
                     result.key = "local"
                     let test = JSON.stringify({"local": result});
                     console.log(test)
+                    //let date = new Date();
+                    //let dateAsString = date.getUTCFullYear()+"_"+date.getUTCMonth()+"_"+date.getDate()+"_"+date.getUTCHours()+"_"+date.getUTCMinutes()+"_"+date.getUTCSeconds()
                     this.downloadFile("#fileDownloadConfig", "config.js", "ccm.files[ 'config.js' ] = " + test);
                 },
                 onDownloadHTML: () => {

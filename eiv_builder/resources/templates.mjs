@@ -27,7 +27,7 @@ export function main(config, builder, events) {
                                     data-toggle="collapse"
                                     data-target="#eiv-general-collapse" aria-expanded="true"
                                     aria-controls="eiv-general-collapse">
-                                General Settings
+                                Grundeinstellung
                             </button>
                         </h2>
                     </div>
@@ -35,9 +35,9 @@ export function main(config, builder, events) {
                          data-parent="#eiv-accordion">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="font-weight-bold" for="eiv-youtubeUrl-btn">Youtube Video ID / URL</label>
+                                <label class="font-weight-bold" for="eiv-youtubeUrl-btn">Youtube Video ID</label>
                                 <span type="button" data-toggle="collapse" data-target="#eiv-info-youtubeUrl"
-                                      aria-expanded="false" aria-controls="eiv-info-youtubeUrl">
+                                      aria-expanded="true" aria-controls="eiv-info-youtubeUrl">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
                                          class="bi bi-info-circle-fill text-info mb-1"
                                          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -47,16 +47,16 @@ export function main(config, builder, events) {
                                 </span>
                                 <div class="collapse" id="eiv-info-youtubeUrl">
                                     <div class="bg-info text-light rounded p-2">
-                                        Please Enter Youtube ID.
+                                        Geben Sie bitte eine Youtube Video ID ein. Wird eine Youtube URL eingegeben, wird die Video ID automatisch extrahiert.
                                     </div>
                                 </div>
                                 <input type="text" name="video" class="form-control" id="eiv-youtubeUrl-btn"
-                                       value="${config.video}" required>
+                                       value="${config.video}" placeholder="Youtube Video ID / Youtube URL" required>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" title="Add interaction"
+                            <!--<button type="button" class="btn btn-primary btn-sm" title="Video ID aus einer Youtube URL extrahieren"
                                     @click=${() => events.onExtractYoutubeID()}>
-                                Try to extract Video ID of URL
-                            </button>
+                                Youtube Video ID aus einer Youtube URL extrahieren
+                            </button>-->
                             <!-- Layout -->
                             <div class="form-group">
                                 <label class="font-weight-bold" for="eiv-layout">Layout</label>
@@ -71,7 +71,7 @@ export function main(config, builder, events) {
                                 </span>
                                 <div class="collapse" id="eiv-info-layout">
                                     <div class="bg-info text-light rounded p-2">
-                                        Choose between prefered a layout format.
+                                        Wählen Sie das bevorzugte Layout.
                                     </div>
                                 </div>
                                 <select class="form-control" name="layout" id="eiv-layout">
@@ -84,7 +84,7 @@ export function main(config, builder, events) {
                             </div>
                             <!-- Behavior -->
                             <div class="form-group">
-                                <label class="font-weight-bold" for="eiv-layout">Behavior of interaction area</label>
+                                <label class="font-weight-bold" for="eiv-layout">Verhalten vom Interaktionsbereich</label>
                                 <span type="button" data-toggle="collapse" data-target="#eiv-info-behavior"
                                       aria-expanded="false" aria-controls="eiv-info-behavior">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -96,11 +96,9 @@ export function main(config, builder, events) {
                                 </span>
                                 <div class="collapse" id="eiv-info-behavior">
                                     <div class="bg-info text-light rounded p-2">
-                                        Choose between a behavior of interaction. Static means, the area of interaction
-                                        is
-                                        always displayed. Dynamic means the area of interaction is automaticaly opened
-                                        and
-                                        closed.
+                                        <pre >Wählen Sie ein Verhalten des Interaktionsbereichs.
+Statisch bedeutet, dass der Bereich immer eingeblendet ist, auch wenn keine Interaktion zum Zeitpunkt dargestellt werden soll.
+Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Interaktion dargestellt werden soll.</pre>
                                     </div>
                                 </div>
                                 <select class="form-control" name="behavior" id="eiv-behavior">
@@ -124,7 +122,7 @@ export function main(config, builder, events) {
                                     data-toggle="collapse"
                                     data-target="#eiv-ic-editor-collapse" aria-expanded="false"
                                     aria-controls="eiv-ic-editor-collapse">
-                                Interaction Editor
+                                Interaktionen
                             </button>
                         </h2>
                     </div>
@@ -137,9 +135,9 @@ export function main(config, builder, events) {
 
                             <!-- Add IC -->
                             <div>
-                                <button type="button" class="btn btn-primary btn-sm" title="Add interaction"
+                                <button type="button" class="btn btn-primary btn-sm" title="Neue interaktion hinzufügen"
                                         @click=${() => events.onAdd()}>
-                                    Add interaction
+                                    Neue interaktion hinzufügen
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
@@ -161,10 +159,10 @@ export function main(config, builder, events) {
                     ?data-hidden=${!builder.onfinish || !builder.submit}>${builder.submit}
             </button>
             <button type="button" class="btn btn-warning btn-block mt-0" @click=${() => events.onDownloadConfig()}
-                    ?data-hidden=${!builder.download}>Configuration download
+                    ?data-hidden=${!builder.download}>Konfigurationsdatei download
             </button>
             <button type="button" class="btn btn-success btn-block mt-0" @click=${() => events.onDownloadHTML()}
-                    ?data-hidden=${!builder.download}>HTML download
+                    ?data-hidden=${!builder.download}>HTML Datei download
             </button>
         </form>
 
@@ -214,7 +212,7 @@ export function main(config, builder, events) {
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h5 class="modal-title">App Preview</h5>
+                        <h5 class="modal-title">App Vorschau</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -271,15 +269,15 @@ export function icName(config, builder, events, interaction, index) {
 
     return html`
         <div class="form-group">
-            <label class="font-weight-bold">Interaction #${interaction.counter}</label>
+            <label class="font-weight-bold">Interaktion #${interaction.counter}</label>
             <input type="text" name="interactions.${index}.counter" class="form-control" id="key${index}"
                    value="${interaction.counter}" hidden>
             <input type="text" name="interactions.${index}.key" class="form-control" id="key${index}"
                    value="${index}" hidden>
             <div style="float: right" class="form-group mb-3">
-                <button type="button" class="btn btn-danger btn-sm" title="Add interaction"
+                <button type="button" class="btn btn-danger btn-sm" title="Interaktion lösche"
                         @click=${() => events.onDelete(interaction.key)}>
-                    Delete interaction #${interaction.counter}
+                    Interaktion löschen #${interaction.counter}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -299,7 +297,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                 <table>
                     <tr>
                         <td>
-                            <label class="" for="interactionSelect">Interaction stops video at:</label>
+                            <label class="" for="interactionSelect">Das Video wird pausiert zum Zeitpunkt:</label>
                         </td>
                         <th>
                             <table>
@@ -312,7 +310,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                                value="${interaction.timestartMinute}" min="0" max="59" required>
                                     </th>
                                     <th>
-                                        <label class="font-weight-bold" for="timestartMinute${index}">Second :</label>
+                                        <label class="font-weight-bold" for="timestartMinute${index}">Sekunde :</label>
                                         <input type="number" name="interactions.${index}.timestartSeconds"
                                                class="form-control"
                                                id="timestartSeconds${index}"
@@ -337,31 +335,23 @@ export function icSetTime2(config, builder, events, interaction, index) {
     return html`
         <div class="form-group">
             <table>
-                <td style="width: 175px;">
-                    <label class="" for="interactionSelect">Interaction timeframe : </label>
+                <td style="width: 178px;">
+                    <label class="" for="interactionSelect">Interaktions Zeitfenster : </label>
                 </td>
                 <td>
                     <table>
-                        <tr>
-                            <th>
-                                <label class="font-weight-bold" for="timestartMinute${index}">Start :</label>
-                            </th>
-                            <th>
-                                <label class="font-weight-bold" for="timestopMinute${index}">Stop :</label>
-                            </th>
-                        </tr>
                         <tr>
                             <td>
                                 <table>
                                     <tr>
                                         <td>
-                                            <label class="" for="timestartMinute${index}">Minute :</label>
+                                            <label class="" for="timestartMinute${index}"><b>Ab</b>: Minute </label>
                                             <input type="number" name="interactions.${index}.timestartMinute"
                                                    class="form-control" id="timestartMinute${index}"
                                                    value="${interaction.timestartMinute}" min="0" max="59" required>
                                         </td>
                                         <td>
-                                            <label class="" for="timestartSeconds${index}">Second :</label>
+                                            <label class="" for="timestartSeconds${index}">Sekunden </label>
                                             <input type="number" name="interactions.${index}.timestartSeconds"
                                                    class="form-control" id="timestartSeconds${index}"
                                                    value="${interaction.timestartSeconds}" min="0" max="59" required>
@@ -373,7 +363,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                 <table>
                                     <tr>
                                         <td>
-                                            <label class="" for="timestopMinute${index}">Minute :</label>
+                                            <label class="" for="timestopMinute${index}"><b>Bis</b> Minute :</label>
                                             <input type="number" name="interactions.${index}.timestopMinute"
                                                    class="form-control" id="timestopMinute${index}"
                                                    value="${interaction.timestopMinute}" min="0" max="59" required>
@@ -460,7 +450,7 @@ export function icBehavoir(config, builder, events, interaction, index) {
             <table>
                 <tr>
                     <td>
-                        <label id="${index}.labelSelectType" for="interactionSelect">Interaction behavior :</label>
+                        <label id="${index}.labelSelectType" for="interactionSelect">Interaktions verhalten :</label>
                         <span type="button" data-toggle="collapse" data-target="#eiv-info-layout"
                               aria-expanded="false" aria-controls="eiv-info-layout">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -472,12 +462,17 @@ export function icBehavoir(config, builder, events, interaction, index) {
                                 </span>
                         <div class="collapse" id="eiv-info-layout">
                             <div class="bg-info text-light rounded p-2">
-                                Choose interacion behave.
+                                <pre>Wählen Sie ein gewünschten Interaktionsverhalten.
+Interaktion für ein Zeitpukt: Das Video wird für die Interaktion pausiert.
+Beim wieder abspielen des Videos, verschwindet die Interaktion.
+Interaktion über ein Zeitraum : Das Video wird nicht pausiert.
+Die Interaktion wird über ein Zeitraum dargestellt, nach
+ablauf des Zeitfensters, verschwindet die Interaktion.</pre>
                             </div>
                         </div>
                     </td>
                     <td>
-                        <select class="form-control" style="margin-left: 15px;width: 250px;"
+                        <select class="form-control" style="margin-left: 15px;width: 280px;"
                                 name="interactions.${index}.interactionBehavior"
                                 id="interactionBehaviorSelect">
                             ${Object.values(builder.ignore.interactionBehavior).map(obj => html`
@@ -500,10 +495,10 @@ export function icType(config, builder, events, interaction, index) {
             <table>
                 <tr>
                     <td>
-                        <label class="" for="interactionType">Interaction type :</label>
+                        <label class="" for="interactionType">Interaktionstyp :</label>
                     </td>
                     <td>
-                        <select class="form-control" style="width: 250px;" name="interactions.${index}.interactionType"
+                        <select class="form-control" style="width: 280px;" name="interactions.${index}.interactionType"
                                 id="interactionType">
                             ${Object.values(builder.ignore.interactionType).map(obj => html`
                                 <option value="${obj.key}"
@@ -524,13 +519,19 @@ export function icGapText(config, builder, events, interaction, index) {
                            value="${interaction.gaptext}" } hidden>`
     }
     return html`
-        <p>Example : Ich bin ein einfacher <b>*(T)e(x)t*</b>.Ich bin ein einfacher <b>*Text*</b>.</p>
-        <div style="display: inline">
-            <p>Ich bin ein einfacher <input type="text" autocorrect="off" autocapitalize="none" size="4.44"
-                                            maxlength="4" placeholder="_ex_">.</p>
-            <p>Ich bin ein einfacher <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none"
-                                                                     size="4.44" maxlength="4" placeholder="">
-                <!----></span>.</p>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+            <p>Beispiel : Ich bin ein einfacher <b>*(T)e(xt)*</b>.Ich bin ein einfacher <b>*Text*</b>.</p>
+        </div>
+        <div class="form-group">
+            <div class="row" style="margin-left: 0px;">
+                <p>Ich bin ein einfacher <input type="text" autocorrect="off" autocapitalize="none" size="4.44"
+                                                maxlength="4" placeholder="_e__">.</p>
+                <p>Ich bin ein einfacher <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none"
+                                                                         size="4.44" maxlength="4" placeholder="">
+                    <!----></span>.</p>
+            </div>
         </div>
         <div id="gaptext${index}" class="imeditor" }></div>`
     //<div id="editor${index}Inner"></div>-->
@@ -548,7 +549,7 @@ export function imageIC(config, builder, events, interaction, index) {
                    ?hidden=${JSON.stringify(interaction.interactionBehavior) !== JSON.stringify("image")}>Image
                 URL:</label>
             <input type="text" name="interactions.${index}.imageUrl" class="form-control" id="imageUrl${index}"
-                   placeholder="Enter image URL"
+                   placeholder="Bild URL"
                    value="${interaction.imageUrl}" }>
         </div>
     `
@@ -562,7 +563,7 @@ export function icMultiple(config, builder, events, interaction, index) {
         <div class="form-group"
              ?hidden=${JSON.stringify(interaction.interactionType) !== JSON.stringify("multiple_answer")}>
             <div class="form-group">
-                <label class="font-weight-bold" for="multiple_answer${index}">Question:</label>
+                <label class="font-weight-bold" for="multiple_answer${index}">Frage:</label>
                 <textarea type="text" name="interactions.${index}.multiple_answer_question.text"
                           class="form-control"
                           id="multiple_answer${index}text"
@@ -574,11 +575,11 @@ export function icMultiple(config, builder, events, interaction, index) {
 
                 <table style="width:100%">
                     <tr>
-                        <td style="width: 50px;">
-                            Correct?
+                        <td style="width: 130px;">
+                            Antwort korrekt?
                         </td>
                         <td>
-                            Answers :
+                            Antwort :
                         </td>
                         <td>
 
@@ -586,8 +587,8 @@ export function icMultiple(config, builder, events, interaction, index) {
                     </tr>
                     ${answersMultiple(config, builder, events, interaction, index)}
                     <tr>
-                        <td style="width: 60px; height: 40px;text-align: center">
-                            <button type="button" class="btn btn-primary btn-sm" title="Add new answer"
+                        <td style="width: 100px; height: 40px;text-align: center">
+                            <button type="button" class="btn btn-primary btn-sm" title="Neue Antwort hinzufügen"
                                     @click=${() => events.onAddAnswerMutlipleAnswer(index)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -608,16 +609,13 @@ export function icSingleAnswer(config, builder, events, interaction, index) {
         <div class="form-group"
              ?hidden=${JSON.stringify(interaction.interactionType) !== JSON.stringify("single_answer")}>
             <div class="form-group">
-                <label class="font-weight-bold" for="single_answer${index}">Question:</label>
+                <label class="font-weight-bold" for="single_answer${index}">Frage:</label>
                 <textarea type="text" name="interactions.${index}.single_answer_question.text"
                           class="form-control" id="single_answer${index}Text"
                           rows="2">${interaction.single_answer_question.text}</textarea>
 
             </div>
             <div class="form-group">
-                <div>
-                    <p class="">Answers :</p>
-                </div>
                 ${answersSingle(config, builder, events, interaction, index)}
             </div>
         </div>
@@ -628,7 +626,7 @@ export function answersMultiple(config, builder, events, interaction, index) {
     return html`
         ${repeat(Object.values(interaction.multiple_answer_question.answers), answers => answers.key, answers => html`
             <tr>
-                <td style="width: 50px;">
+                <td style="width: 130px;">
                     <input type="checkbox" class="form-control"
                            name="interactions.${index}.multiple_answer_question.answers.${answers.key}.correct"
                            id="interactions.${index}.multiple_answer_question.answers.${answers.key}.correct" }
@@ -649,7 +647,7 @@ export function answersMultiple(config, builder, events, interaction, index) {
                            value="${answers.key}" hidden>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning btn-sm" title="Add interaction"
+                    <button type="button" class="btn btn-warning btn-sm" title="Antwort löschen"
                             @click=${() => events.onDeleteAnswerMultipleAnswer(interaction.key, answers.key)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-trash" viewBox="0 0 16 16">
@@ -667,9 +665,20 @@ export function answersSingle(config, builder, events, interaction, index) {
     return html`
         <div class="form-group">
             <table style="width: 100%;">
+                <tr>
+                    <td style="width: 130px;">
+                        Antwort korrekt?
+                    </td>
+                    <td>
+                        Antwort :
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
                 ${repeat(Object.values(interaction.single_answer_question.answers), answers => answers.key, answers => html`
                     <tr>
-                        <td style="width: 50px;">
+                        <td style="width: 130px;">
                             <input type="text"
                                    name="interactions.${index}.single_answer_question.answers.${answers.key}.key"
                                    value="${answers.key}"
@@ -691,7 +700,7 @@ export function answersSingle(config, builder, events, interaction, index) {
                                    value="${answers.answer}" required>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm" title="Add interaction"
+                            <button type="button" class="btn btn-warning btn-sm" title="Neue Antwort hinzufügen"
                                     @click=${() => events.onDeleteAnswerSinleAnswer(interaction.key, answers.key)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-trash" viewBox="0 0 16 16">
@@ -705,7 +714,7 @@ export function answersSingle(config, builder, events, interaction, index) {
                 `)}
                 <tr>
                     <td style="width: 60px; height: 40px;text-align: center">
-                        <button type="button" class="btn btn-primary btn-sm" title="Add interaction"
+                        <button type="button" class="btn btn-primary btn-sm" title="Antwort löschen"
                                 @click=${() => events.onAddAnswerSinleAnswer(index)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -737,7 +746,7 @@ export function icCCMApp(config, builder, events, interaction, index) {
 
     return html`
         <div ?hidden=${JSON.stringify(interaction.interactionType) !== JSON.stringify("ccmapp")}>
-            <select class="form-control" style="max-width: 120px;" name="interactions.${index}.ccmAppType"
+            <select class="form-control" style="max-width: 160px;" name="interactions.${index}.ccmAppType"
                     id="interactions.${index}.ccmAppType">
                 ${Object.values(builder.ignore.ccmAppTypes).map(obj => html`
                     <option value="${obj.key}"
@@ -755,7 +764,7 @@ export function icCCMApp(config, builder, events, interaction, index) {
                 <input type="textarea" name="interactions.${index}.ccmAppToolURL" class="form-control"
                        id="interactions.${index}.ccmAppToolURL" placeholder="ccmAppToolURL"
                        value="${interaction.ccmAppToolURL}"/>
-                <option value="">Please select config type</option>
+                <option value="">Konfigurationstyp : </option>
                 <select class="form-control" style="max-width: 120px;" name="interactions.${index}.ccmAppConfigFileType"
                         id="interactions.${index}.ccmAppType">
                     ${Object.values(builder.ignore.ccmConfigFileTypes).map(obj => html`
@@ -809,7 +818,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
             <table style="width: 100%;">
                 <tr>
                     <th style="width: 120px;">
-                        Description :
+                        Beschreibung :
                     </th>
                     <th>
                         <textarea class="form-control" id="descriptionHttp${index}"
@@ -823,7 +832,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                     </th>
                     <th>
                         <input type="textarea" name="interactions.${index}.httpURL" class="form-control"
-                               id="imageUrl${index}" placeholder="Enter URL"
+                               id="imageUrl${index}" placeholder="URL"
                                value="${interaction.httpURL}" }/>
                     </th>
                 </tr>
@@ -831,8 +840,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                     <th>
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
-                                <label class="font-weight-bold" style="width: 120px;" for="httpCall${index}showHTTPURL">URL
-                                    visible?</label>
+                                <label class="font-weight-bold" style="width: 120px;" for="httpCall${index}showHTTPURL">URL sichtbar?</label>
                             </div>
                     </th>
                     <th>
@@ -848,7 +856,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                 </tr>
                 <tr>
                     <th style="width: 120px;">
-                        Expected response :
+                        Erwartete Antwort :
                     </th>
                     <th>
                         <textarea class="form-control" id="expectedResponse${index}"
@@ -860,11 +868,11 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                     <th>
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
-                                <label class="font-weight-bold" style="width: 120px;height: 30px;"
-                                       for="httpCall${index}showExpectedResponse">Expected response visible?</label>
+                                <label class="font-weight-bold" style=""
+                                       for="httpCall${index}showExpectedResponse">Erwartete Antwort sichtbar?</label>
                             </div>
                     </th>
-                    <th>
+                    <th class="mt-1">
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
                                 <input type="checkbox" style="width: 120px;height: 30px;" class="form-control"
@@ -922,7 +930,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
                                 <label class="font-weight-bold" style="width: 120px;height: 30px;"
-                                       for="httpCall${index}showHTTPMethod">HTTP method visible?</label>
+                                       for="httpCall${index}showHTTPMethod">HTTP method sichtbar?</label>
                             </div>
                     </th>
                     <th>
@@ -965,7 +973,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
 
                     </th>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm" title="Add interactioaan"
+                        <button type="button" class="btn btn-primary btn-sm" title="Neun HTTP Header hinzufügen"
                                 @click=${() => events.onAddHTTPCallHeader(index)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -979,7 +987,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
                                 <label class="font-weight-bold" style="width: 120px;height: 30px;"
-                                       for="httpCall${index}showHTTPHeaders">HTTP headers visible?</label>
+                                       for="httpCall${index}showHTTPHeaders">HTTP headers sichtbar?</label>
                             </div>
                     </th>
                     <th>
@@ -1020,7 +1028,7 @@ export function icHTTPCallHeaders(config, builder, events, interaction, index) {
                            value="${header.headerValue}" }/>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning btn-sm" title="Add interaction"
+                    <button type="button" class="btn btn-warning btn-sm" title="Add header"
                             @click=${() => events.onDeleteHTTPCallHeader(interaction.key, header.key)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-trash" viewBox="0 0 16 16">

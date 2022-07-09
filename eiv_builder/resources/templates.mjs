@@ -166,7 +166,7 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
                         <button type="button" class="btn btn-success btn-block mt-0 col-sm-6" @click=${() => events.onDownloadHTML()}
                             ?data-hidden=${!builder.downloadHTML}>${builder.downloadHTML}
                     </button>
-                    <button type="button" class="btn btn- btn-block mt-0 col-sm-6" @click=${() => events.onDownloadConfig()}
+                    <button type="button" class="btn btn-info btn-block mt-0 col-sm-6" @click=${() => events.onDownloadConfig()}
                             ?data-hidden=${!builder.downloadConfig}>${builder.downloadConfig}
                     </button>
                 </div>    

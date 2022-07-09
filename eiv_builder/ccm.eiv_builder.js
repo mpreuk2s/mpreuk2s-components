@@ -645,7 +645,6 @@
                         "<!DOCTYPE html>\n" +
                         "<meta charset=\"utf-8\">\n" +
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                        "<meta name=\"author\" content=\"André Kless <andre.kless@web.de> 2018-2020\">\n" +
                         "<meta name=\"license\" content=\"The MIT License (MIT)\">\n" +
                         "\n" +
                         "<style>html, body, body > *:first-child { height: 100%; } body { margin: 0; }\n" +

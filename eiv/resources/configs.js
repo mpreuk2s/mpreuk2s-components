@@ -1,60 +1,19 @@
-ccm.files[
-    'configs.js'
-    ] = {
-
+ccm.files['configs.js'] = {
     "local": {
         "key": "local",
         "interactions": {
-            "asdasd": {
-                "counter": "1",
-                "key": "1657298655297X8479254934688443",
+            "1": {
                 "interactionBehavior": "timeframe",
-                "timestartMinute": 0,
-                "timestartSeconds": 0,
-                "timestopMinute": 0,
-                "timestopSeconds": 0,
                 "interactionType": "ccmapp",
                 "gaptext": "Ich bin ein einfacher *Text*.",
-                "htmlAsValue": "<h>htmlAsValue </h>",
-                "htmltext": "<h>htmltext </h>",
-                "ccmAppType": "CCM_App_URL_Config",
-                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
-                "ccmAppToolURL": "https://raw.githubusercontent.com/ccmjs/akless-components/master/blank/ccm.blank.js",
-                "ccmAppConfigFileType": "URL",
-                "ccmAppConfigFileURL": "./../eiv_builder/resources/testAppConfig2.js",
-                "ccmAppConfigFileText": "{\n      \"editor\": [ \"ccm.load\",\n        \"https://ccmjs.github.io/tkless-components/libs/quill/quill.js\",\n        \"https://cdn.quilljs.com/1.2.0/quill.snow.css\"\n      ],\n      \"settings\": {\n        \"modules\": {\n          \"toolbar\": [\n            [ { 'header': [ 1, 2, 3, false ] } ],\n            [ 'bold', 'italic', 'underline', 'strike' ],\n            [ { 'script': 'sub' }, { 'script': 'super' } ],\n            [ { 'color': [] }, { 'background': [] } ],\n            [ { 'list': 'ordered' }, { 'list': 'bullet' } ],\n          ]\n        },\n        \"theme\": \"snow\"\n      }\n    }",
-                "imageUrl": "",
+                "imageUrl": "https//url.com/image.jpg",
                 "timestart": 1,
                 "timestop": 15,
-                "ccmAppTool": [
-                    "ccm.component",
-                    "https://ccmjs.github.io/akless-components//blank/ccm.blank.js"
-                ],
-                //"ccmAppConfigFile": [  "ccm.load",   "./../eiv_builder/resources/testAppConfig2.js"  ]
-                "ccmAppConfigFile": {
-                    "key": "demo1",
-                    "css": ["ccm.load", "https://ccmjs.github.io/akless-components/cloze/resources/default.css"],
-                    "keywords": true,
-                    "feedback": true,
-                    "blank": true,
-                    "captions.finish": "Save and Restart",
-                    "user": ["ccm.instance", "https://ccmjs.github.io/akless-components/user/versions/ccm.user-9.0.0.js", ["ccm.get", "https://ccmjs.github.io/akless-components/user/resources/configs.js", "guest"]],
-                    "retry": true,
-                    "onfinish": {
-                        "store": true,
-                        "alert": "Saved!",
-                        "restart": true
-                    },
-                    "text": "MArtin The practice of starting new organizations, particularly new businesses, generally in response to identified opportunities. → *entrepreneurship* </span></p><p><span style=\"color: rgb(0, 0, 0);\">A person who owns and operates a business enterprise, and who takes all the risks involved in the operation of the business. → *entrepreneur* </span></p><p><span style=\"color: rgb(0, 0, 0);\">A business venture or activity that provides customers with a product (goods/ service= with a view to making a profit). → *enterprise*</span></p><p><span style=\"color: rgb(0, 0, 0);\">To start or set-up a new organization, institution or company. → *to found*</span></p><p><span style=\"color: rgb(0, 0, 0);\">This is an independently owned and operated enterprise which is not dominant in its field of operations. The standards are determined by the number of employees, the start-up investment or the turnover. → *small business*</span></p><p><span style=\"color: rgb(0, 0, 0);\">The process of planning, organizing, leading, coordinating and controlling resources to produce goods and services to satisfy customer needs. → *business management*</span></p><p><span style=\"color: rgb(0, 0, 0);\">Is defined as an enterprise, commercial entity, or firm in either private or public sector, concerned with providing products (goods or services) to satisfy customer requirements. → *business*</span></p><p><span style=\"color: rgb(0, 0, 0);\">A newly founded enterprise. → *start-up business/start-up company*</span></p><p><span style=\"color: rgb(0, 0, 0);\">An intangible good. → *service*</span></p><p><span style=\"color: rgb(0, 0, 0);\">A business undertaking involving risk. → *business venture* </span></p>"
-                }
             },
         },
         "video": "bHQqvYy5KYo",
         "behavior": "static",
         "layout": "vertical",
-        "data": "",
-        "user": "",
-        "store": ""
     },
 
     "online": {

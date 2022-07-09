@@ -45,17 +45,23 @@ ccm.files[ 'resources.js' ] = {
       ]
     ],
     "preview": "Vorschau",
-    "download": "Download",
+    "downloadHTML": "Seperate HTML Datei",
+    "downloadConfig": "Seperate Konfigurationsdatei",
+    "downloadOnfile":"Applikation in einer Datei",
     //"onfinish": { "restart": true },
     //"submit": "Submit",
     "shadow": "none",
     "tool": [ "ccm.component", "../eiv/ccm.eiv.js" ],
-    "video":"bHQqvYy5KYo"
+    "video":"bHQqvYy5KYo",
+    "eivURL":"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js"
   } ,
   "online":  {
 
     "preview": "Preview",
     "download": "Download",
+    "downloadOnfile":"",
+    "tool": [ "ccm.component", "https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js" ],
+    "eivURL":"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js"
     //  "onfinish": { "restart": true },
     //"submit": "Submit",
   },

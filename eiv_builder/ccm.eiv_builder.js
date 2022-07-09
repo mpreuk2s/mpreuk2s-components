@@ -159,6 +159,7 @@
         Instance: function () {
             let $, dataset;
             let config;
+            let date = new Date();
             let editorsMap = new Map();
             let counter = 0;
             this.ready = async () => {
@@ -176,6 +177,7 @@
                 dataset = await $.integrate(await $.dataset(this.data), await $.integrate(this.ignore.defaults, this.tool.config));
                 config = {};
                 config.interactions = [];
+                config.configid=$.generateKey();
                 this.addIC(config.interactions);
                 if (typeof this.video !== 'undefined') {
                     // the variable is defined
@@ -267,6 +269,7 @@
              * @param {Object} [config = this.getValue()] - app configuration
              */
             this.render = (config = this.getValue()) => {
+                this.updateTimestamp();
                 this.html.render(this.html.main(config, this, events), this.element);
                 this.element.querySelector('#eiv-youtubeUrl-btn').value=config.video;
                 this.element.querySelectorAll('.imeditor')
@@ -546,7 +549,12 @@
                 }
                 return input;
             }
-
+            this.createTimeStampName = () =>{
+                return date.getUTCFullYear()+"_"+date.getUTCMonth()+"_"+date.getDate()+"_"+date.getUTCHours()+"_"+date.getUTCMinutes()+"_"+date.getUTCSeconds();
+            }
+            this.updateTimestamp =()=>{
+                date= new Date();
+            }
             const events = {
 
                 onDelete: key => {
@@ -626,20 +634,40 @@
                 },
                 onDownloadConfig: () => {
                     let result = this.getValue();
-                    result.key = "local"
+                    result.key = "online"
                     let test = JSON.stringify({"local": result});
                     console.log(test)
-                    //let date = new Date();
-                    //let dateAsString = date.getUTCFullYear()+"_"+date.getUTCMonth()+"_"+date.getDate()+"_"+date.getUTCHours()+"_"+date.getUTCMinutes()+"_"+date.getUTCSeconds()
-                    this.downloadFile("#fileDownloadConfig", "config.js", "ccm.files[ 'config.js' ] = " + test);
+                    let dateAsString = date.getUTCFullYear()+"_"+date.getUTCMonth()+"_"+date.getDate()+"_"+date.getUTCHours()+"_"+date.getUTCMinutes()+"_"+date.getUTCSeconds()
+                    this.downloadFile("#fileDownloadConfig", "config_"+this.createTimeStampName()+".js", "ccm.files[ 'config_"+this.createTimeStampName()+".js' ] = " + test);
                 },
+                onDownloadOneHTML: () => {
+                    this.downloadFile("#fileAllInOneFile", "index"+this.createTimeStampName()+".html",
+                        "<!DOCTYPE html>\n" +
+                        "<meta charset=\"utf-8\">\n" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                        "<meta name=\"author\" content=\"André Kless <andre.kless@web.de> 2018-2020\">\n" +
+                        "<meta name=\"license\" content=\"The MIT License (MIT)\">\n" +
+                        "\n" +
+                        "<style>html, body, body > *:first-child { height: 100%; } body { margin: 0; }\n" +
+                        "#eiv-preview-body>*:first-child{\n" +
+                        "    height: 100%;\n" +
+                        "    width: 100%;\n" +
+                        "}\n" +
+                        "</style>\n" +
+                        "<body>\n" +
+                        "<script src=\"https://ccmjs.github.io/ccm/ccm.js\"></script>\n" +
+                        "<script>\n" +
+                        "    ccm.start( '"+this.eivURL+"', { root: document.body, src: "+JSON.stringify( this.getValue())+"    } );\n" +
+                        "</script>");
+                }
+                ,
                 onDownloadHTML: () => {
-                    this.downloadFile("#fileDownloadHTML", "index.html",
+                    this.downloadFile("#fileDownloadHTML", "index"+this.createTimeStampName()+".html",
                         "<!DOCTYPE html>\n" +
                         "<meta charset=\"utf-8\">\n" +
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
                         "<meta name=\"license\" content=\"The MIT License (MIT)\">\n" +
-                        "<script src=\"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js\"></script>\n" +
+                        "<script src=\""+this.eivURL+"\"></script>\n" +
                         "<style>html, body, body > *:first-child {\n" +
                         "    height: calc(100% - 5px);\n" +
                         "    width: calc(100% - 5px);\n" +
@@ -649,7 +677,6 @@
                         "    width: 100%;\n" +
                         "}\n" +
                         "ccm-eiv {\n" +
-                        "    font-weight: bold;\n" +
                         "    display: block;\n" +
                         "    margin: auto;\n" +
                         "    height: 100%;\n" +
@@ -664,7 +691,7 @@
                         "body {\n" +
                         "    margin: 0;\n" +
                         "}</style>\n" +
-                        "<ccm-eiv key='[\"ccm.get\",\"./config.js\",\"local\"]'></ccm-eiv>");
+                        "<ccm-eiv key='[\"ccm.get\",\"./config_"+this.createTimeStampName()+".js\",\"local\"]'></ccm-eiv>");
                 }
             }
 

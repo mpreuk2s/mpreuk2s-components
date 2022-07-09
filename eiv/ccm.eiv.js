@@ -198,7 +198,9 @@
                     case "vertical":
                         this.html.class = this.html.class += " verticalMain";
                         this.html.inner[1].class = "interactionContainerVertical"
-                        this.html.inner[1].style = "display: none;"
+                        if (this.behavior==="dynamic"){
+                            this.html.inner[1].style = "display: none;"
+                        }
                         this.html.inner[0].id = "playerContainerVertical"
                         this.html.inner[0].class = "video-containerVertical"
                         playerContainerID = "interactionContainerVertical"

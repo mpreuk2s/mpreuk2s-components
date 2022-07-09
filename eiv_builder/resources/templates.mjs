@@ -158,46 +158,23 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
             <button type="submit" class="btn btn-primary btn-block mt-0"
                     ?data-hidden=${!builder.onfinish || !builder.submit}>${builder.submit}
             </button>
-            <button type="button" class="btn btn-warning btn-block mt-0" @click=${() => events.onDownloadConfig()}
-                    ?data-hidden=${!builder.download}>Konfigurationsdatei download
+            <button type="button" class="btn btn-warning btn-block mt-0" @click=${() => events.onDownloadOneHTML()}
+                    ?data-hidden=${!builder.downloadOnfile}>${builder.downloadOnfile}
             </button>
-            <button type="button" class="btn btn-success btn-block mt-0" @click=${() => events.onDownloadHTML()}
-                    ?data-hidden=${!builder.download}>HTML Datei download
-            </button>
-        </form>
-
-        <!-- Modal: Download -->
-        <div id="eiv-download-modal" class="modal" role="dialog">
-            <div class="modal-dialog modal-dialog-scrollable modal-sm">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h5 class="modal-title">File download</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <!-- Modal Body -->
-                    <div id="eiv-download-body" class="modal-body p-0 container" style="height: 100px;">
-                        <div class="d-flex justify-content-center align-items-center spinner">
-                            <button type="button" class="btn btn-info  "
-                                    @click=${() => events.onDownloadConfig()}
-                            >Configuratin file
-                            </button>
-                            <button type="button" class="btn btn-info " style="margin-left: 30px"
-                                    @click=${() => events.onDownloadHTML()}
-                            >HTML file
-                            </button>
-                            <a id="fileDownloadConfig" hidden></a>
-                            <a id="fileDownloadHTML" hidden></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                <div class="row" style="margin-left: 0; margin-right: 0px;">
+                        <button type="button" class="btn btn-success btn-block mt-0 col-sm-6" @click=${() => events.onDownloadHTML()}
+                            ?data-hidden=${!builder.downloadHTML}>${builder.downloadHTML}
+                    </button>
+                    <button type="button" class="btn btn- btn-block mt-0 col-sm-6" @click=${() => events.onDownloadConfig()}
+                            ?data-hidden=${!builder.downloadConfig}>${builder.downloadConfig}
+                    </button>
+                </div>    
             </div>
-        </div>
-
+            <a id="fileDownloadConfig" hidden></a>
+            <a id="fileDownloadHTML" hidden></a>
+            <a id="fileAllInOneFile" hidden></a>
+        </form>
         <!-- Modal: Edit Text -->
         <div id="mcb-edit-modal" class="modal" role="dialog">
             <div class="modal-dialog" role="document">
@@ -351,7 +328,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                                    value="${interaction.timestartMinute}" min="0" max="59" required>
                                         </td>
                                         <td>
-                                            <label class="" for="timestartSeconds${index}">Sekunden </label>
+                                            <label class="" for="timestartSeconds${index}">Sekunde </label>
                                             <input type="number" name="interactions.${index}.timestartSeconds"
                                                    class="form-control" id="timestartSeconds${index}"
                                                    value="${interaction.timestartSeconds}" min="0" max="59" required>
@@ -369,7 +346,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                                    value="${interaction.timestopMinute}" min="0" max="59" required>
                                         </td>
                                         <td>
-                                            <label class="" for="timestopSeconds${index}">Second :</label>
+                                            <label class="" for="timestopSeconds${index}">Sekunde </label>
                                             <input type="number" name="interactions.${index}.timestopSeconds"
                                                    class="form-control" id="timestopSeconds${index}"
                                                    value="${interaction.timestopSeconds}" min="0" max="59" required>

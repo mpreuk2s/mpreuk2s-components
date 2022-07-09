@@ -35,86 +35,7 @@ ccm.files[ 'resources.js' ] = {
     } ],
     "helper": [ "ccm.load", "https://ccmjs.github.io/akless-components/modules/versions/helper-7.0.0.mjs" ],
     "html": [ "ccm.load", "./resources/templates.mjs" ],
-    "ignore": {
-      "layout": {
-        "horizontal": {
-          "key": "horizontal",
-          "title": "Horizontal",
-          "value": "horizontal"
-        },
-        "vertical": {
-          "key": "vertical",
-          "title": "Vertical",
-          "value": "vertical"
-        },
-      },
-      "behavior": {
-        "static": {
-          "key": "static",
-          "title": "Static",
-          "value": "static"
-        },
-        "dynamic": {
-          "key": "dynamic",
-          "title": "Dynamic",
-          "value": "dynamic"
-        },
-      },
-      "interactionBehavior": {
-        "static": {
-          "key": "singleStop",
-          "title": "Stop Video",
-          "value": "singleStop"
-        },
-        "dynamic": {
-          "key": "timeframe",
-          "title": "Don't stop video",
-          "value": "timeframe"
-        },
-      },
-      "interactionType": {
-        "single_answer": {
-          "key": "single_answer",
-          "title": "single_answer",
-          "value": "single_answer"
-        },
-        "multiple_answer": {
-          "key": "multiple_answer",
-          "title": "multiple_answer",
-          "value": "multiple_answer"
-        },
-        "httpcall": {
-          "key": "httpcall",
-          "title": "httpcall",
-          "value": "httpcall"
-        },
-        "html": {
-          "key": "html",
-          "title": "html",
-          "value": "html"
-        },
-        "htmltext": {
-          "key": "htmltext",
-          "title": "htmltext",
-          "value": "htmltext"
-        },
-        "gaptext": {
-          "key": "gaptext",
-          "title": "gaptext",
-          "value": "gaptext"
-        },
-        "image": {
-          "key": "image",
-          "title": "image",
-          "value": "image"
-        },
-        "ccmapp": {
-          "key": "ccmapp",
-          "title": "ccmapp",
-          "value": "ccmapp"
-        },
-      },
-    },
+
     "libs": [ "ccm.load",
       [  // serial
         "https://ccmjs.github.io/akless-components/libs/jquery-3/jquery.min.js",
@@ -129,6 +50,7 @@ ccm.files[ 'resources.js' ] = {
     //"submit": "Submit",
     "shadow": "none",
     "tool": [ "ccm.component", "../eiv/ccm.eiv.js" ],
+    "video":"bHQqvYy5KYo"
   } ,
   "online":  {
 

@@ -5,66 +5,52 @@ ccm.files[
     "local": {
         "key": "local",
         "interactions": {
-            "1657132164810X3454673314919525": {
+            "asdasd": {
                 "counter": "1",
-                "key": "1657132164810X3454673314919525",
+                "key": "1657298655297X8479254934688443",
                 "interactionBehavior": "timeframe",
                 "timestartMinute": 0,
-                "timestartSeconds": 15,
+                "timestartSeconds": 0,
                 "timestopMinute": 0,
-                "timestopSeconds": 30,
-                "interactionType": "gaptext",
+                "timestopSeconds": 0,
+                "interactionType": "ccmapp",
+                "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppType": "CCM_App_URL_Config",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppToolURL": "https://raw.githubusercontent.com/ccmjs/akless-components/master/blank/ccm.blank.js",
+                "ccmAppConfigFileType": "URL",
+                "ccmAppConfigFileURL": "./../eiv_builder/resources/testAppConfig2.js",
+                "ccmAppConfigFileText": "{\n      \"editor\": [ \"ccm.load\",\n        \"https://ccmjs.github.io/tkless-components/libs/quill/quill.js\",\n        \"https://cdn.quilljs.com/1.2.0/quill.snow.css\"\n      ],\n      \"settings\": {\n        \"modules\": {\n          \"toolbar\": [\n            [ { 'header': [ 1, 2, 3, false ] } ],\n            [ 'bold', 'italic', 'underline', 'strike' ],\n            [ { 'script': 'sub' }, { 'script': 'super' } ],\n            [ { 'color': [] }, { 'background': [] } ],\n            [ { 'list': 'ordered' }, { 'list': 'bullet' } ],\n          ]\n        },\n        \"theme\": \"snow\"\n      }\n    }",
                 "imageUrl": "",
-                "multiple_answer_question": {
-                    "text": "2+2?",
-                    "answers": {
-                        "1657132164810X2011899877185901": {
-                            "correct": true,
-                            "answer": "4",
-                            "key": "1657132164810X2011899877185901"
-                        },
-                        "1657132164810X4325809184588376": {
-                            "correct": true,
-                            "answer": "5",
-                            "key": "1657132164810X4325809184588376"
-                        }
-                    }
-                },
-                "single_answer_question": {
-                    "text": "2+2?",
-                    "answers": {
-                        "1657132164810X369784434095463": {
-                            "key": "1657132164810X369784434095463",
-                            "answer": "4"
-                        },
-                        "1657132164810X6169304016474209": {
-                            "key": "1657132164810X6169304016474209",
-                            "answer": "5"
-                        }
+                "timestart": 1,
+                "timestop": 15,
+                "ccmAppTool": [
+                    "ccm.component",
+                    "https://ccmjs.github.io/akless-components//blank/ccm.blank.js"
+                ],
+                //"ccmAppConfigFile": [  "ccm.load",   "./../eiv_builder/resources/testAppConfig2.js"  ]
+                "ccmAppConfigFile": {
+                    "key": "demo1",
+                    "css": ["ccm.load", "https://ccmjs.github.io/akless-components/cloze/resources/default.css"],
+                    "keywords": true,
+                    "feedback": true,
+                    "blank": true,
+                    "captions.finish": "Save and Restart",
+                    "user": ["ccm.instance", "https://ccmjs.github.io/akless-components/user/versions/ccm.user-9.0.0.js", ["ccm.get", "https://ccmjs.github.io/akless-components/user/resources/configs.js", "guest"]],
+                    "retry": true,
+                    "onfinish": {
+                        "store": true,
+                        "alert": "Saved!",
+                        "restart": true
                     },
-                    "correct": "1657132164810X369784434095463"
-                },
-                "httpDescription": "",
-                "expectedResponse": "",
-                "httpURL": "https://reqbin.com/echo/get/json",
-                "httpMethod": "GET",
-                "headers": {
-                    "1657132164810X4079316103074877": {
-                        "key": "1657132164810X4079316103074877",
-                        "headerName": "Content-Type",
-                        "headerValue": "application/json; charset=utf-8"
-                    }
-                },
-                "gaptext": "<p>Ich bin ein einfacher *Text*.</p>",
-                "timestart": 15,
-                "timestop": 30
-            }
+                    "text": "MArtin The practice of starting new organizations, particularly new businesses, generally in response to identified opportunities. → *entrepreneurship* </span></p><p><span style=\"color: rgb(0, 0, 0);\">A person who owns and operates a business enterprise, and who takes all the risks involved in the operation of the business. → *entrepreneur* </span></p><p><span style=\"color: rgb(0, 0, 0);\">A business venture or activity that provides customers with a product (goods/ service= with a view to making a profit). → *enterprise*</span></p><p><span style=\"color: rgb(0, 0, 0);\">To start or set-up a new organization, institution or company. → *to found*</span></p><p><span style=\"color: rgb(0, 0, 0);\">This is an independently owned and operated enterprise which is not dominant in its field of operations. The standards are determined by the number of employees, the start-up investment or the turnover. → *small business*</span></p><p><span style=\"color: rgb(0, 0, 0);\">The process of planning, organizing, leading, coordinating and controlling resources to produce goods and services to satisfy customer needs. → *business management*</span></p><p><span style=\"color: rgb(0, 0, 0);\">Is defined as an enterprise, commercial entity, or firm in either private or public sector, concerned with providing products (goods or services) to satisfy customer requirements. → *business*</span></p><p><span style=\"color: rgb(0, 0, 0);\">A newly founded enterprise. → *start-up business/start-up company*</span></p><p><span style=\"color: rgb(0, 0, 0);\">An intangible good. → *service*</span></p><p><span style=\"color: rgb(0, 0, 0);\">A business undertaking involving risk. → *business venture* </span></p>"
+                }
+            },
         },
         "video": "bHQqvYy5KYo",
-        "behavior": "dynamic",
+        "behavior": "static",
         "layout": "vertical",
         "data": "",
         "user": "",
@@ -85,7 +71,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -142,7 +128,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -195,10 +181,14 @@ ccm.files[
                 "timestopMinute": 1,
                 "timestopSeconds": 30,
                 "interactionType": "httpcall",
+                "showExpectedResponse": true,
+                "showHTTPURL": true,
+                "showHTTPMethod": true,
+                "showHTTPHeaders": true,
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -248,7 +238,7 @@ ccm.files[
                 "interactionType": "htmltext",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<p>HTML text <span style=\"background-color: rgb(102, 163, 224);\">example.</span></p><ul><li>1</li><li><span style=\"color: rgb(0, 138, 0);\">2</span></li><li><span style=\"color: rgb(0, 138, 0);\">3</span></li></ul><p><br></p>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -300,7 +290,7 @@ ccm.files[
                 "interactionType": "gaptext",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -352,7 +342,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "https://mpreuk2s.github.io/mpreuk2s-components/eiv/resources/hbrswebsite.png",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -399,11 +389,11 @@ ccm.files[
                 "timestartSeconds": 50,
                 "timestopMinute": 0,
                 "timestopSeconds": 0,
-                "interactionType": "ccmapp",
+                "interactionType": "ccmapp", "ccmAppType": "DMS",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -450,7 +440,7 @@ ccm.files[
         "data": "",
         "user": "",
         "store": "",
-        "key": "local"
+        "key": "online"
     },
     "online2": {
         "interactions": {
@@ -466,7 +456,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -523,7 +513,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -576,10 +566,14 @@ ccm.files[
                 "timestopMinute": 1,
                 "timestopSeconds": 30,
                 "interactionType": "httpcall",
+                "showExpectedResponse": true,
+                "showHTTPURL": true,
+                "showHTTPMethod": true,
+                "showHTTPHeaders": true,
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -629,7 +623,7 @@ ccm.files[
                 "interactionType": "htmltext",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<p>HTML text <span style=\"background-color: rgb(102, 163, 224);\">example.</span></p><ul><li>1</li><li><span style=\"color: rgb(0, 138, 0);\">2</span></li><li><span style=\"color: rgb(0, 138, 0);\">3</span></li></ul><p><br></p>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -681,7 +675,7 @@ ccm.files[
                 "interactionType": "gaptext",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -733,7 +727,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "https://mpreuk2s.github.io/mpreuk2s-components/eiv/resources/hbrswebsite.png",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -780,11 +774,11 @@ ccm.files[
                 "timestartSeconds": 50,
                 "timestopMinute": 0,
                 "timestopSeconds": 0,
-                "interactionType": "ccmapp",
+                "interactionType": "ccmapp", "ccmAppType": "DMS",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=pdf_viewer%2C1646593744742X014229786715552972&ccm-pdf_viewer=page-7",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -831,7 +825,7 @@ ccm.files[
         "data": "",
         "user": "",
         "store": "",
-        "key": "local"
+        "key": "online2"
     },
     "online3": {
         "interactions": {
@@ -847,7 +841,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -904,7 +898,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -957,10 +951,14 @@ ccm.files[
                 "timestopMinute": 1,
                 "timestopSeconds": 30,
                 "interactionType": "httpcall",
+                "showExpectedResponse": true,
+                "showHTTPURL": true,
+                "showHTTPMethod": true,
+                "showHTTPHeaders": true,
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1010,7 +1008,7 @@ ccm.files[
                 "interactionType": "htmltext",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<p>HTML text <span style=\"background-color: rgb(102, 163, 224);\">example.</span></p><ul><li>1</li><li><span style=\"color: rgb(0, 138, 0);\">2</span></li><li><span style=\"color: rgb(0, 138, 0);\">3</span></li></ul><p><br></p>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1062,7 +1060,7 @@ ccm.files[
                 "interactionType": "gaptext",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1114,7 +1112,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "https://mpreuk2s.github.io/mpreuk2s-components/eiv/resources/hbrswebsite.png",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1161,11 +1159,11 @@ ccm.files[
                 "timestartSeconds": 50,
                 "timestopMinute": 0,
                 "timestopSeconds": 0,
-                "interactionType": "ccmapp",
+                "interactionType": "ccmapp", "ccmAppType": "DMS",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1212,7 +1210,7 @@ ccm.files[
         "data": "",
         "user": "",
         "store": "",
-        "key": "local"
+        "key": "online3"
     },
     "online4": {
         "interactions": {
@@ -1228,7 +1226,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *(T)e(x)t*-",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1285,7 +1283,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1338,10 +1336,14 @@ ccm.files[
                 "timestopMinute": 1,
                 "timestopSeconds": 30,
                 "interactionType": "httpcall",
+                "showExpectedResponse": true,
+                "showHTTPURL": true,
+                "showHTTPMethod": true,
+                "showHTTPHeaders": true,
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1391,7 +1393,7 @@ ccm.files[
                 "interactionType": "htmltext",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<p>HTML text <span style=\"background-color: rgb(102, 163, 224);\">example.</span></p><ul><li>1</li><li><span style=\"color: rgb(0, 138, 0);\">2</span></li><li><span style=\"color: rgb(0, 138, 0);\">3</span></li></ul><p><br></p>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1443,7 +1445,7 @@ ccm.files[
                 "interactionType": "gaptext",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1495,7 +1497,7 @@ ccm.files[
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "https://mpreuk2s.github.io/mpreuk2s-components/eiv/resources/hbrswebsite.png",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1542,11 +1544,11 @@ ccm.files[
                 "timestartSeconds": 50,
                 "timestopMinute": 0,
                 "timestopSeconds": 0,
-                "interactionType": "ccmapp",
+                "interactionType": "ccmapp", "ccmAppType": "DMS",
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "htmlAsValue": "<h>htmlAsValue </h>",
                 "htmltext": "<h>htmltext </h>",
-                "ccmappURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                "ccmAppDmsURL": "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 "imageUrl": "",
                 "multiple_answer_question": {
                     "text": "2+2?",
@@ -1593,6 +1595,6 @@ ccm.files[
         "data": "",
         "user": "",
         "store": "",
-        "key": "local"
+        "key": "online4"
     }
 }

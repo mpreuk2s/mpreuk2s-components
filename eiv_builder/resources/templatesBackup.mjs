@@ -688,9 +688,9 @@ export function icHTMLText(config, builder, events, interaction, index) {
 export function icCCMApp(config, builder, events, interaction, index) {
 
     return html`
-        <input type="textarea" name="interactions.${index}.ccmappURL" class="form-control"
-               id="interactions.${index}.ccmappURL" placeholder="Pure HTML"
-               value="${interaction.ccmappURL}"
+        <input type="textarea" name="interactions.${index}.ccmAppDmsURL" class="form-control"
+               id="interactions.${index}.ccmAppDmsURL" placeholder="Pure HTML"
+               value="${interaction.ccmAppDmsURL}"
                ?hidden=${JSON.stringify(interaction.interactionType) !== JSON.stringify("ccmapp")}
         />
     `

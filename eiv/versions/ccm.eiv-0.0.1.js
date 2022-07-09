@@ -231,7 +231,7 @@
                     "interactionBehavior": "singleStop",
                     "timestart": 30,
                     "interactionType": "ccmapp",
-                    "ccmappURL":"https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                    "ccmAppDmsURL":"https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
                 }
             ],
             "helperTemplate": [ "ccm.load", "https://mpreuk2s.github.io/mpreuk2s-components/eiv/resources/templates.mjs" ],
@@ -978,7 +978,7 @@
             }
             this.ccmapp = interaction => {
                 let emptyContainer = this.createEmptyContainer();
-                emptyContainer.inner = "<iframe src=\""+interaction.ccmappURL+"\" title=\"CMM APP\" width=\"100%\" height=\"100%\"></iframe>"
+                emptyContainer.inner = "<iframe src=\""+interaction.ccmAppDmsURL+"\" title=\"CMM APP\" width=\"100%\" height=\"100%\"></iframe>"
                 return emptyContainer;
                 //LIT HTML RENDER
                 //this.helperTemplate.render(this.helperTemplate.imageHTMLRender2( this, this ),(this.element.querySelector('#interaction') ));  // prepare main HTML structure

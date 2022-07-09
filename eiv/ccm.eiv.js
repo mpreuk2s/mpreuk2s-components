@@ -349,7 +349,8 @@
                         interActionAsHtml = this.imageHTML(interaction);
                         break;
                     case "ccmapp":
-                        interActionAsHtml = this.ccmapp(interaction);
+                        //interActionAsHtml = this.ccmapp(interaction);
+                        this.replaceInterAction(null, interaction, this.ccmapp);
                         break;
                     default:
                     // code block
@@ -418,7 +419,7 @@
             /*
             Interaction replacements
            */
-            this.replaceInterAction = (interactionHTML, interaction, callbackLitHTMl) => {
+            this.replaceInterAction = (interactionHTML, interaction, callBackRendering) => {
                 //https://github.com/ccmjs/ccm/wiki/Responsive-Design impelmentiern
                 if (this.behavior === "dynamic") {
                     if (interactionHTML === icEmpty) {
@@ -452,7 +453,7 @@
                         return;
                     }
                     if (interactionHTML === null) {
-                        callbackLitHTMl(interaction);
+                        callBackRendering(interaction);
                         if (this.layout === "horizontal") {
                             jQuery(this.element.querySelector('#interactionContainer'))
                                 .show("slide", {direction: "right"}, 500, () => {
@@ -505,7 +506,7 @@
                     } else if (interactionHTML === null) {
                         jQuery(this.element.querySelector('#interaction'))
                             .slideUp(300, () => {
-                                    callbackLitHTMl(interaction);
+                                    callBackRendering(interaction);
                                     jQuery(this.element.querySelector('#interaction')).slideDown(300);
                                 }
                             );
@@ -780,7 +781,7 @@
 
             this.imageHTML = interaction => {
                 //TODO mehrere bilder?
-                let emptyContainer = this.createEmptyContainer();
+                let emptyContainer = this.emptyIC();
                 //emptyContainer.inner = "<div class=\"container-fluid\"><img src=\""+interaction.imageUrl+"\" class=\"img-fluid\" /></div>"
                 emptyContainer.inner = {
                     "tag": "div",
@@ -823,19 +824,19 @@
                 //this.helperTemplate.render(this.helperTemplate.imageHTMLRender2( this, this ),(this.element.querySelector('#interaction') ));  // prepare main HTML structure
                 //jQuery('#exampleModal').modal();
             }
-            this.ccmapp = interaction => {
-                let emptyContainer = this.createEmptyContainer();
-                emptyContainer.inner = "<iframe src=\"" + interaction.ccmappURL + "\" title=\"CMM APP\" width=\"100%\" height=\"100%\"></iframe>"
-                return emptyContainer;
-                //LIT HTML RENDER
-                //this.helperTemplate.render(this.helperTemplate.imageHTMLRender2( this, this ),(this.element.querySelector('#interaction') ));  // prepare main HTML structure
-                //jQuery('#exampleModal').modal();
+            this.ccmapp = async interaction => {
+                if (interaction.ccmAppType === "DMS") {
+                    let dmsIframe = this.emptyIC();
+                    dmsIframe.inner = "<iframe src=\"" + interaction.ccmAppDmsURL + "\" title=\"DMS APP\"></iframe>";
+                    $.replace(this.element.querySelector('#interaction'), $.html(dmsIframe))
+                } else {
+                    if (interaction.ccmAppConfigFileType==="noConfigNeeded") {
+                        interaction.ccmAppTool.start( {root: this.element.querySelector('#interaction')})
+                    }else {
+                        interaction.ccmAppTool.start(Object.assign(interaction.ccmAppConfigFile, {root: this.element.querySelector('#interaction')}))
+                    }
+                }
             }
-
-            this.performHTTPRequest = () => {
-                this.performHTTPRequest
-            }
-
 
             this.feedbackGapText = () => {
                 // set initial state for detail information's of the gap results
@@ -907,29 +908,29 @@
             }
 
             this.normalText = interaction => {
-                let html = this.createEmptyContainer();
+                let html = this.emptyIC();
                 html.inner = {"tag": "pre", "inner": interaction.text}
                 return html;
             }
             this.htmlInteraction = interaction => {
-                let html = this.createEmptyContainer();
+                let html = this.emptyIC();
                 html.inner = "<iframe srcdoc='" + interaction.htmlAsValue + "\' title=\"HTML\" width=\"100%\" height=\"100%\"></iframe>"
                 //todo add bootstrap cointainer
                 return html;
             }
             this.htmltextInteraction = interaction => {
-                let html = this.createEmptyContainer();
+                let html = this.emptyIC();
                 html.inner = interaction.htmltext;
                 //todo add bootstrap cointainer
                 return html;
             }
 
-            this.createEmptyContainer = () => {
+            this.emptyIC = () => {
                 return JSON.parse(JSON.stringify(icEmpty))
             }
 
             this.singleAnswerQuestion = interaction => {
-                var copiedHTML = this.createEmptyContainer();
+                var copiedHTML = this.emptyIC();
                 copiedHTML.class = copiedHTML.class + " radioQuestion"
                 copiedHTML.inner = {"tag": "fieldset", "inner": []};
                 copiedHTML.inner.inner.push(
@@ -976,7 +977,7 @@
             }
 
             this.multipleAnswerQuestion = interaction => {
-                let copiedHTML = this.createEmptyContainer();
+                let copiedHTML = this.emptyIC();
                 copiedHTML.class = copiedHTML.class + " radioQuestion"
                 copiedHTML.inner = {"tag": "fieldset", "inner": []};
                 copiedHTML.inner.inner.push({
@@ -1026,7 +1027,7 @@
 
                 //https://gomakethings.com/how-to-use-async-and-await-with-vanilla-javascript/
                 //https://github-wiki-see.page/m/ccmjs/ccm/wiki/Loading-of-Resources method	HTTP method to use: 'PUT', 'GET', 'POST', 'DELETE', 'fetch' or 'JSONP' (default is 'POST').
-                var copiedHTML = this.createEmptyContainer();
+                var copiedHTML = this.emptyIC();
                 var htmlOfHTTPInteraction = [
                     {
                         "tag": "div",
@@ -1035,7 +1036,7 @@
                         "inner": [
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": "row",
                                 "style": "font-size: 11pt!important",
                                 "inner": {
                                     "tag": "div",
@@ -1047,7 +1048,13 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3 formSection",
+                                "class": "formSection",
+
+                            },
+                            {
+                                "tag": "div",
+                                "style": +interaction.showHTTPURL ? '' : 'display:none;',
+                                "class": interaction.showHTTPURL ? "row mt-1" : "",
                                 "inner": [
                                     {
                                         "tag": "div",
@@ -1075,7 +1082,8 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "style": +interaction.showHTTPMethod ? '' : 'display:none;',
+                                "class": interaction.showHTTPMethod ? "row mt-1" : "",
                                 "inner": [
                                     {
                                         "tag": "label",
@@ -1087,18 +1095,63 @@
                                     {
                                         "id": "http_method_select",
                                         "name": "http_method",
-                                        "style": "width: 100px;",
+                                        "style": "width: 130px;",
                                         "class": "col-sm-1 form-control",
                                         "tag": "select", "inner": [
-                                            {"tag": "option", "value": "GET", "inner": "GET"},
-                                            {"tag": "option", "value": "HEAD", "inner": "HEAD"},
-                                            {"tag": "option", "value": "POST", "inner": "POST"},
-                                            {"tag": "option", "value": "PUT", "inner": "PUT"},
-                                            {"tag": "option", "value": "DELETE", "inner": "DELETE"},
-                                            {"tag": "option", "value": "CONNECT", "inner": "CONNECT"},
-                                            {"tag": "option", "value": "OPTIONS", "inner": "OPTIONS"},
-                                            {"tag": "option", "value": "TRACE", "inner": "TRACE"},
-                                            {"tag": "option", "value": "PATCH", "inner": "PATCH"}
+                                            {
+                                                "tag": "option",
+                                                "value": "GET",
+                                                "inner": "GET",
+                                                "selected": interaction.httpMethod === "GET"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "HEAD",
+                                                "inner": "HEAD",
+                                                "selected": interaction.httpMethod === "HEAD"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "POST",
+                                                "inner": "POST",
+                                                "selected": interaction.httpMethod === "POST"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "PUT",
+                                                "inner": "PUT",
+                                                "selected": interaction.httpMethod === "PUT"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "DELETE",
+                                                "inner": "DELETE",
+                                                "selected": interaction.httpMethod === "DELETE"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "CONNECT",
+                                                "inner": "CONNECT",
+                                                "selected": interaction.httpMethod === "CONNECT"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "OPTIONS",
+                                                "inner": "OPTIONS",
+                                                "selected": interaction.httpMethod === "OPTIONS"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "TRACE",
+                                                "inner": "TRACE",
+                                                "selected": interaction.httpMethod === "TRACE"
+                                            },
+                                            {
+                                                "tag": "option",
+                                                "value": "PATCH",
+                                                "inner": "PATCH",
+                                                "selected": interaction.httpMethod === "PATCH"
+                                            }
 
                                         ]
                                     }
@@ -1108,7 +1161,8 @@
                             {
                                 "tag": "div",
                                 "id": "httpHeadersRow",
-                                "class": "row mt-3",
+                                "style": +interaction.showHTTPHeaders ? '' : 'display:none;',
+                                "class": interaction.showHTTPHeaders ? "row mt-1" : "",
                                 "inner": [
                                     {
                                         "tag": "div",
@@ -1121,7 +1175,8 @@
                                 ]
                             }, {
                                 "tag": "div",
-                                "class": "row",
+                                "class": interaction.showHTTPHeaders ? "row " : "",
+                                "style": +interaction.showHTTPHeaders ? '' : 'display:none;',
                                 "inner": [
                                     {
                                         "tag": "div",
@@ -1143,13 +1198,14 @@
                             {
                                 "tag": "div",
                                 "id": "httpHeaders",
-                                "style": "margin-left : 5px;",
-                                "class": "row mt-1",
+                                "style": interaction.showHTTPHeaders ? 'margin-left : 11px; ' : 'margin-left : 11px; display:none;',
+                                "class": interaction.showHTTPHeaders ? "row mt-1" : "",
                                 "inner": []
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-1",
+                                "class": interaction.showHTTPHeaders ? "row mt-1" : "",
+                                "style": +interaction.showHTTPHeaders ? '' : 'display:none;',
                                 "inner": [
                                     {
                                         "tag": "button",
@@ -1172,13 +1228,13 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": "row mt-1",
                                 "inner": [
                                     {
                                         "tag": "label",
                                         "for": "payload",
                                         "class": "",
-                                        "inner": "HTTP Body :"
+                                        "inner": "Input :"
 
                                     },
                                     {
@@ -1195,7 +1251,7 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": "row mt-1",
                                 "style": "",
                                 "inner":
                                     {
@@ -1209,7 +1265,7 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": "row mt-1",
                                 "inner": [
                                     {
                                         "id": "responseStatus",
@@ -1224,13 +1280,13 @@
 
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": "row mt-1",
                                 "inner": [
 
                                     {
                                         "tag": "div",
                                         "class": "col-sm-3",
-                                        "inner": "Response Body :",
+                                        "inner": "Response :",
 
                                     },
                                     {
@@ -1243,7 +1299,8 @@
                             },
                             {
                                 "tag": "div",
-                                "class": "row mt-3",
+                                "class": interaction.showHTTPHeaders ? "row mt-1" : "",
+                                "style": +interaction.showExpectedResponse ? '' : 'display:none;',
                                 "inner": [{
                                     "tag": "p",
                                     "for": "payload",
@@ -1266,6 +1323,7 @@
                     var headerHTML = {
                         "tag": "div",
                         "class": "row",
+                        "style": interaction.showHTTPHeaders ? '' : 'display:none;',
                         "inner": [
                             {
                                 "tag": "input",
@@ -1284,7 +1342,7 @@
 
                             }]
                     }
-                    htmlOfHTTPInteraction[0].inner[5].inner.push(headerHTML);
+                    htmlOfHTTPInteraction[0].inner[6].inner.push(headerHTML);
                 }
                 copiedHTML.inner = htmlOfHTTPInteraction;
                 return copiedHTML;
@@ -1367,31 +1425,25 @@
                 }
                 fetch(url, fetchParam)
                     .then(response => {
-                            if (response.ok) {
-                                response.text().then(
-                                    text => {
-                                        this.setInner("#response", text);
-                                        this.setInner("#expectedValue", this.interactions[this.currentICID].expectedResponse);
-                                        this.setInner("#responseStatus", "HTTP Status : " + response.status + "");
-                                        if (this.compareContentOfTwoString(text, this.interactions[this.currentICID].expectedResponse)) {
-                                            //this.element.querySelector("#response").style.color = "green"
-                                        } else {
-                                            //this.element.querySelector("#response").style.color = "red"
-                                        }
-                                    }
-                                );
-                            } else {
-                                return Promise.reject(response);
-                            }
-                        }
-                    )
+                        response.text()
+                            .then(text => this.updateHTTPView(text, response));
+                    })
                     .catch(
-                        error => {
-                            this.setInner("#responseStatus", "Error during has been occurred.");
-                            console.warn(error)
-                        }
+                        error => this.setInner("#responseStatus", error)
                     );
             }
+
+            this.updateHTTPView = (text, response) => {
+                this.setInner("#response", text);
+                this.setInner("#expectedValue", this.interactions[this.currentICID].expectedResponse);
+                this.setInner("#responseStatus", "HTTP Status : " + response.status + "");
+                if (this.compareContentOfTwoString(text, this.interactions[this.currentICID].expectedResponse)) {
+                    //this.element.querySelector("#response").style.color = "green"
+                } else {
+                    //this.element.querySelector("#response").style.color = "red"
+                }
+            }
+
             this.removeHader = async () => {
                 //httpHeaders
                 this.element.querySelector("#httpHeaders").removeChild(this.element.querySelector("#httpHeaders").lastElementChild);

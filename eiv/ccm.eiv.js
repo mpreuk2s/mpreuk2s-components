@@ -247,8 +247,6 @@
                 // manage lazy loading
                 this.loading && this.element.querySelector('#iframe').setAttribute('loading', this.loading);
 
-                await this.checkInteractionConfig();
-
                 if (this.behavior === "dynamic" || this.behavior === "allwaysone") {
                     if (this.layout === "vertical") {
                         jQuery(this.element.querySelector("#interactionContainer")).slideDown(500);
@@ -287,6 +285,8 @@
                     }
                 });
                 resizeObserver.observe(this.element.querySelector('.main'));
+
+                await this.checkInteractionConfig();
             };
 
             /*

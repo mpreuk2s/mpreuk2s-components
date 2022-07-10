@@ -464,6 +464,7 @@ export function icBehavoir(config, builder, events, interaction, index) {
                         <div class="collapse" id="eiv-info-layout">
                             <div class="bg-info text-light rounded p-2">
                                 <pre>Wählen Sie ein gewünschten Interaktionsverhalten.
+                                    
 Interaktion für ein Zeitpukt: Das Video wird für die Interaktion pausiert.
 Beim wieder abspielen des Videos, verschwindet die Interaktion.
                                     

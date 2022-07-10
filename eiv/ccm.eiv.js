@@ -149,7 +149,7 @@
                     {
                         "tag": "h5",
                         "class": "error",
-                        "inner": "Die Konfiguration von Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
+                        "inner": "Die Konfiguration von den Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
                     },
                     {
                         "tag": "h5",

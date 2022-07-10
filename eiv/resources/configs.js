@@ -8,11 +8,11 @@ ccm.files['configs.js'] = {
                 "gaptext": "Ich bin ein einfacher *Text*.",
                 "imageUrl": "https//url.com/image.jpg",
                 "timestart": 1,
-                "timestop": 15,
+                "timestop": 1,
             },
         },
         "video": "bHQqvYy5KYo",
-        "behavior": "static",
+        "behavior": "dynamic",
         "layout": "vertical",
     },
 

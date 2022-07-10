@@ -466,6 +466,7 @@ export function icBehavoir(config, builder, events, interaction, index) {
                                 <pre>Wählen Sie ein gewünschten Interaktionsverhalten.
 Interaktion für ein Zeitpukt: Das Video wird für die Interaktion pausiert.
 Beim wieder abspielen des Videos, verschwindet die Interaktion.
+                                    
 Interaktion über ein Zeitraum : Das Video wird nicht pausiert.
 Die Interaktion wird über ein Zeitraum dargestellt, nach
 ablauf des Zeitfensters, verschwindet die Interaktion.</pre>

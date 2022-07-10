@@ -462,7 +462,7 @@
 
 
                 const generateKey = $.generateKey();
-                interactions[generateKey] = {
+                /*interactions[generateKey] = {
                     key: generateKey,
                     counter: ++counter,
                     interactionBehavior: "timeframe",
@@ -482,7 +482,6 @@
                     timestopSeconds: 0,
                     timestopMinute: 0,
                     timestopHour: 0,
-                    textquestion: "Make Call to : https://reqbin.com/echo/get/json",
                     headers: [
                         {
                             key: $.generateKey(),
@@ -520,6 +519,54 @@
                     htmltext: "<h>htmltext </h>",
                     gaptext: "Ich bin ein einfacher *Text*.",
                     ccmAppDmsURL: "https://ccmjs.github.io/digital-makerspace/app.html?app=live_poll,1657053736557X0013442437656943085",
+                    "showExpectedResponse": true,
+                    "showHTTPURL": true,
+                    "showHTTPMethod": true,
+                    "showHTTPHeaders": true,
+
+                }*/
+                interactions[generateKey] = {
+                    key: generateKey,
+                    counter: ++counter,
+                    interactionBehavior: "timeframe",
+                    interactionType: "single_answer",
+                    single_answer_question: {
+                        text: "2+2?",
+                        correct: singleAnswerKey,
+                        "answers": singleAnswerObject
+                    },
+                    multiple_answer_question: {
+                        text: "2+2?",
+                        "answers": multipleAnswerObject
+                    },
+                    timestartSeconds: 0,
+                    timestartMinute: 0,
+                    timestartHour: 0,
+                    timestopSeconds: 0,
+                    timestopMinute: 0,
+                    timestopHour: 0,
+                    headers: [
+                        {
+                            key: $.generateKey(),
+                            "headerName": "",
+                            "headerValue": ""
+                        }
+                    ],
+                    httpURL: "",
+                    expectedResponse: "",
+                    imageUrl: "",
+                    ccmAppType: "DMS",
+                    ccmAppToolURL: "",
+                    ccmAppConfigFileText: "",
+                    ccmAppConfigFileURL: "",
+                    ccmAppConfigFileType: "noConfigNeeded",
+                    ccmAppConfigFile: "",
+                    httpDescription: "",
+                    text: "Ich bin ein einfacher Text.",
+                    htmlAsValue: "",
+                    htmltext: "",
+                    gaptext: "ch bin ein einfacher *(T)e(xt)*.Ich bin ein einfacher *Text*.",
+                    ccmAppDmsURL: "",
                     "showExpectedResponse": true,
                     "showHTTPURL": true,
                     "showHTTPMethod": true,

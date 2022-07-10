@@ -278,6 +278,13 @@ export function icSetTime2(config, builder, events, interaction, index) {
                         <th>
                             <table>
                                 <tr>
+                                    <th style="width: 84px;">
+                                        <label class="font-weight-bold"  style="width: 84px" for="timestartHour${index}">Stunde:</label>
+                                        <input type="number" name="interactions.${index}.timestartHour"
+                                               class="form-control"
+                                               id="timestartHour${index}"
+                                               value="${interaction.timestartHour}" min="0" required>
+                                    </th>
                                     <th>
                                         <label class="font-weight-bold" for="timestartMinute${index}">Minute:</label>
                                         <input type="number" name="interactions.${index}.timestartMinute"
@@ -297,6 +304,11 @@ export function icSetTime2(config, builder, events, interaction, index) {
                         </th>
                     </tr>
                 </table>
+                <input type="number" name="interactions.${index}.timestopHour"
+                       class="form-control"
+                       id="timestopHour${index}"
+                       value="${interaction.timestopHour}" min="0"
+                       ?hidden=${JSON.stringify(interaction.interactionBehavior) === JSON.stringify("singleStop")}>
                 <input type="number" name="interactions.${index}.timestopMinute" class="form-control"
                        id="timestopMinute${index}" min="0" max="59"
                        value="${interaction.timestopMinute}"
@@ -316,12 +328,16 @@ export function icSetTime2(config, builder, events, interaction, index) {
                 </td>
                 <td>
                     <table>
-                        <tr>
-                            <td>
-                                <table>
                                     <tr>
+                                        <td style="width: 92px;">
+                                            <label class=""  style="width: 92px" for="timestartHour${index}"><b>Von</b>: Stunde</label>
+                                            <input type="number" name="interactions.${index}.timestartHour"
+                                                   class="form-control"
+                                                   id="timestartHour${index}"
+                                                   value="${interaction.timestartHour}" min="0" required>
+                                        </td>
                                         <td>
-                                            <label class="" for="timestartMinute${index}" style="width: 84px"><b>Ab</b>: Minute </label>
+                                            <label class="" for="timestartMinute${index}" style="width: 84px">Minute </label>
                                             <input type="number" name="interactions.${index}.timestartMinute"
                                                    class="form-control" id="timestartMinute${index}"
                                                    value="${interaction.timestartMinute}" min="0" max="59" required>
@@ -334,12 +350,21 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                         </td>
                                     </tr>
                                 </table>
-                            </td>
+                    <table>
+                        <tr>
                             <td>
                                 <table>
                                     <tr>
+                                        <td style="width: 90px;">
+                                            <label class="" for="timestopHour${index}" style="width: 90px"><b>Bis :</b> Stunde </label>
+                                            <input type="number" name="interactions.${index}.timestopHour"
+                                                   class="form-control"
+                                                   id="timestopHour${index}"
+                                                   value="${interaction.timestopHour}" min="0"
+                                            >
+                                        </td>
                                         <td>
-                                            <label class="" for="timestopMinute${index}" style="width: 85px"><b>Bis :</b> Minute </label>
+                                            <label class="" for="timestopMinute${index}" style="width: 85px">Minute </label>
                                             <input type="number" name="interactions.${index}.timestopMinute"
                                                    class="form-control" id="timestopMinute${index}"
                                                    value="${interaction.timestopMinute}" min="0" max="59" required>

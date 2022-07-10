@@ -126,7 +126,7 @@
             const minimumSize = 400;
             let keywords_data = [];
             let playerContainerID = "interactionContainer";
-
+            let icsConfContainsErros=false;
             var eivCallbacks = {
                 checkResult: this.checkIfAnswerIsOK,
                 request: this.performHTTPRequest,
@@ -149,7 +149,32 @@
                     {
                         "tag": "h5",
                         "class": "error",
-                        "inner": "Fehler: Mehrere Interaktionen sind zur selben Zeitpunkt definiert."
+                        "inner": "Die Konfiguration von Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
+                    },
+                    {
+                        "tag": "h5",
+                        "class": "error",
+                        "inner": "1.Mehrere Interaktionen sind zum selben Start Zeitpunkt definiert. "
+                    },
+                    {
+                        "tag": "h5",
+                        "class": "error",
+                        "inner": "2.Ein Interaktion befindet sich innerhalb eines Zeitraums einer anderen Interaktion. "
+                    },
+                    {
+                        "tag": "h5",
+                        "class": "error",
+                        "inner": "3.Mehrere Interaktion sind zum selben Start Zeitpunk definiert. "
+                    },
+                    {
+                        "tag": "h5",
+                        "class": "error",
+                        "inner": "4.Ein \"Bis\" Zeitpunkt eines Zeitraums ist gleich wie der Start einer andere Interaktion."
+                    },
+                    {
+                        "tag": "h5",
+                        "class": "error",
+                        "inner": "6.Ein \"Bis\" eines Zeitraums ist kleiner als der \"Von\"."
                     }
                 ]
             };
@@ -182,8 +207,9 @@
                 };
 
                 // prevent error in case of loading more than one video at the same time
-                const i = this.id - 1;
-                return new Promise(resolve => setTimeout(resolve, i * 1000));
+                let i = this.id - 1;
+                this.ignoreDeplay &&  (i = 1)
+                return new Promise(resolve => setTimeout(resolve, i * 100));
 
             };
 
@@ -380,6 +406,9 @@
                 }
             }
             this.tik = () => {
+                if (icsConfContainsErros){
+                    return;
+                }
                 //console.log("tik");
                 const currentTime = this.getCurrentPlayerTime();
                 if (currentTime === null) {
@@ -599,30 +628,42 @@
                 for (var i = 0; i < this.interactions.length; i++) {
                     this.interactions[i].id = i;
                 }
-                this.everyInterActionHasStart();
-                await this.interactionsDontStartAtSameTime();
-                const icNotInterference = await this.interactionHasNoInterference();
-                if (!icNotInterference) {
+                icsConfContainsErros = (!this.everyInterActionHasStart()) || (!this.interactionHasNoInterference()) || this.interactionsDontStartAtSameTime() || this.icTimeframesAreNotOK()
+                if (icsConfContainsErros) {
                     await this.replaceInterAction(errorLoadingInteraction);
                 }
             }
 
-            this.interactionsDontStartAtSameTime = async () => {
+            this.interactionsDontStartAtSameTime = () => {
                 const tmp = [];
                 for (const interaction of this.interactions) {
                     if (tmp.includes(interaction.timestart)) {
-                        await this.replaceInterAction(errorLoadingInteraction);
-                        break;
+                        return true
                     }
                     tmp.push(interaction.timestart);
                 }
+                return false;
             }
 
-            this.interactionHasNoInterference = async () => {
+            this.icTimeframesAreNotOK = () => {
+                for (const interaction of this.interactions) {
+                    if (interaction.interactionBehavior==="timeframe"){
+                        if (interaction.timestop<interaction.timestart){
+                            return true;
+                        }
+                        if (interaction.timestop===interaction.timestart){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            this.interactionHasNoInterference =  () => {
                 for (var i = 0; i < this.interactions.length; i++) {
-                    if (this.interactions[i].hasOwnProperty(timeEndFieldName)) {
+                    if (this.interactions[i].interactionBehavior==="timeframe") {
                         for (var j = 0; j < this.interactions.length; j++) {
-                            if (i !== j && this.interactions[j].hasOwnProperty(timeEndFieldName)) {
+                            if (i !== j && this.interactions[j].interactionBehavior==="timeframe") {
                                 const startBetween = this.interactions[j].timestart <= this.interactions[i].timestart && this.interactions[i].timestart <= this.interactions[j].timestop;
                                 const endBetween = this.interactions[j].timestart <= this.interactions[i].timestop && this.interactions[i].timestop <= this.interactions[j].timestop;
                                 if (startBetween || endBetween) {
@@ -635,7 +676,7 @@
                 }
                 for (i = 0; i < this.interactions.length; i++) {
                     for (j = 0; j < this.interactions.length; j++) {
-                        if (i !== j && this.interactions.hasOwnProperty(timeEndFieldName)) {
+                        if (i !== j && this.interactions[j].interactionBehavior==="timeframe") {
                             const startBetween = this.interactions[j].timestart <= this.interactions[i].timestart && this.interactions[i].timestart <= this.interactions[j].timestop;
                             if (startBetween) {
                                 return false;
@@ -647,14 +688,12 @@
             }
 
             this.everyInterActionHasStart = () => {
-                this.interactions.every(interaction => {
-                        if (!interaction.hasOwnProperty(timeStartFieldName)) {
-                            this.replaceInterAction(errorLoadingInteraction);
-                            return false;
-                        }
-                        return true;
+                for (const interaction of this.interactions) {
+                    if (!interaction.hasOwnProperty(timeStartFieldName)) {
+                        return false;
                     }
-                )
+                }
+                return true;
             }
 
             this.gaptext = interaction => {

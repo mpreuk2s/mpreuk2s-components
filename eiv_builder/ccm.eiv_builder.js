@@ -208,8 +208,9 @@
 
                 // update app preview in modal dialog
                 jQuery('#eiv-preview').on('show.bs.modal', () => {
-
-                    this.tool.start(Object.assign(this.getValue(), {root: this.element.querySelector('#eiv-preview-body')}))
+                    let previewConfig = this.getValue();
+                    previewConfig.ignoreDeplay=true;
+                    this.tool.start(Object.assign(previewConfig, {root: this.element.querySelector('#eiv-preview-body')}))
                 });
                 jQuery('#eiv-preview').on('hide.bs.modal', () => {
                     this.element.querySelector('#eiv-preview-body').removeChild(this.element.querySelector('#eiv-preview-body').firstChild);
@@ -318,9 +319,9 @@
                     interaction[1].timestopSeconds=this.validateNumbers(interaction[1].timestopSeconds)*/
 
 
-                    interaction[1].timestart = (parseInt(interaction[1].timestartMinute) * 60) + interaction[1].timestartSeconds
+                    interaction[1].timestart = (parseInt(interaction[1].timestartHour) * 3600)+(parseInt(interaction[1].timestartMinute) * 60) + parseInt(interaction[1].timestartSeconds)
                     if (interaction[1].interactionBehavior === "timeframe") {
-                        interaction[1].timestop = (parseInt(interaction[1].timestopMinute) * 60) + interaction[1].timestopSeconds
+                        interaction[1].timestop = (parseInt(interaction[1].timestopHour) * 3600)+(parseInt(interaction[1].timestopMinute) * 60) + parseInt(interaction[1].timestopSeconds)
                         /*if (interaction[1].timestart>=interaction[1].timestop){
                           interaction[1].timestop=interaction[1].timestart;
                           interaction[1].timestop=interaction[1].timestop+1;
@@ -477,8 +478,10 @@
                     },
                     timestartSeconds: 0,
                     timestartMinute: 0,
+                    timestartHour: 0,
                     timestopSeconds: 0,
                     timestopMinute: 0,
+                    timestopHour: 0,
                     textquestion: "Make Call to : https://reqbin.com/echo/get/json",
                     headers: [
                         {
@@ -645,10 +648,6 @@
                         "<meta name=\"license\" content=\"The MIT License (MIT)\">\n" +
                         "\n" +
                         "<style>html, body, body > *:first-child { height: 100%; } body { margin: 0; }\n" +
-                        "#eiv-preview-body>*:first-child{\n" +
-                        "    height: 100%;\n" +
-                        "    width: 100%;\n" +
-                        "}\n" +
                         "</style>\n" +
                         "<body>\n" +
                         "<script src=\"https://ccmjs.github.io/ccm/ccm.js\"></script>\n" +

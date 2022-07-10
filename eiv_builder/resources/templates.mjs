@@ -71,7 +71,7 @@ export function main(config, builder, events) {
                                 </span>
                                 <div class="collapse" id="eiv-info-layout">
                                     <div class="bg-info text-light rounded p-2">
-                                        Wählen Sie das bevorzugte Layout.
+                                        Die EIV-Applikation besteht aus zwei Bereichen, einem Video Bereich und einem Interaktions-Bereich. Hierbei wird die Ausrichtung der beiden Bereiche ausgewählt.
                                     </div>
                                 </div>
                                 <select class="form-control" name="layout" id="eiv-layout">

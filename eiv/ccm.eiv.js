@@ -85,8 +85,7 @@
                     "https://code.jquery.com/ui/1.13.0/jquery-ui.js",
                     "https://ccmjs.github.io/akless-components/libs/bootstrap-5/js/bootstrap.bundle.min.js",
                 ]
-            ]
-            ,
+            ],
             //  "loading",                    {string} loading - lazy loading: 'lazy', 'eager' or 'auto' (see https://addyosmani.com/blog/lazy-loading/)
             "height": "100%",
             "width": "100%",
@@ -773,13 +772,10 @@
                  * predefined answers for text gaps
                  * @type {string[]}
                  */
-                const keywords = self.keywords === true ? keywords_data.map(keyword => keyword[0].word) : self.keywords;
-
-                // generated list of predefined answers? => sort predefined answers lexicographical
-                this.keywords === true && keywords.sort((a, b) => a.localeCompare(b));
+                const keywords = interaction.keywords === true ? keywords_data.map(keyword => keyword[0].word) : interaction.keywords;
 
                 //LIT HTML RENDER
-                this.helperTemplate.render(this.helperTemplate.mainGapText(), (this.element.querySelector('#interaction')));  // prepare main HTML structure
+                this.helperTemplate.render(this.helperTemplate.mainGapText(this,keywords), (this.element.querySelector('#interaction')));  // prepare main HTML structure
 
                 this.element.querySelector('#text').innerHTML = textinteraction;         // render text including gaps
 
@@ -919,7 +915,7 @@
                     });
 
                     // give visual feedback for correctness
-                    //gap.disabled = true;
+                    gap.disabled = true;
                     if (true) {
                         if (!event_data.nearly && self.solutions) gap.value = '';
                         if (true) {
@@ -938,14 +934,17 @@
                     results.sections.push(event_data);
 
                 });
-
+                this.helperTemplate.render(this.helperTemplate.buttons(this.feedbackGapText,this.resetGaptext), this.element.querySelector('#buttons'));
                 // restore original keywords information data
                 keywords_data.forEach(keyword => keyword.forEach(keyword => delete keyword.used));
 
-                if (results.sections.length === 0) return;                       // no evaluation results? => abort
-                this.logger && this.logger.log('feedback', $.clone(results));  // logging of 'feedback' event
-                this.onfeedback && this.onfeedback(this, $.clone(results));    // trigger individual 'feedback' callback
+                if (results.sections.length === 0) return;                      // no evaluation results? => abort
 
+            }
+
+            /** callback when 'Reset' button is clicked */
+            this.resetGaptext= () => {
+                this.gaptext(this.interactions[this.currentICID])
             }
 
             this.normalText = interaction => {

@@ -19,10 +19,15 @@ export function mainTemplate(imageUrl,events) {
     `;
 }
 
-export function mainGapText() {
+export function mainGapText(instance,keywords) {
     return html`
         <div class="container">
-            <div id="interaction2" class="row">
+            <div  id="keywords" ?data-hidden=${!keywords}>
+                        ${keywords && keywords.map( keyword => html`
+                  <div class="keyword"><span @click="${event => event.target.classList.toggle( 'marked' )}">${instance.helper.escapeHTML( keyword )}</span></div>
+                ` )}
+            </div>
+            <div id="interaction2" class="row mt-1">
                 <div class="row">
                     <div id="text"></div>
                 </div>
@@ -39,11 +44,17 @@ export function inputField(value = '', placeholder = '', size = 10, maxlength = 
     return html`<input type="text" size="${size}" maxlength="${maxlength}" autocorrect="off" autocapitalize="none"
                        placeholder="${placeholder}" @input="${onInput}" @change="${onChange}">`;
 }
-
 export function button(onFeedback) {
     return html`
         <div id="feedback">
             <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onFeedback}">Feedback</button>
+        </div>
+    `;
+}
+export function buttons(onFeedback,onReset) {
+    return html`
+        <div id="reset">
+            <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onReset}">Neustart</button>
         </div>
     `;
 }

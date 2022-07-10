@@ -378,6 +378,36 @@ margin: 0;
 select.form-control {
   -webkit-appearance: menulist;
 }
+#keywords {
+  position: sticky;
+  position: -webkit-sticky;
+  font-family: sans-serif;
+  background: white;
+  border: 0.1em solid black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.keyword:not(:last-child):after {
+  padding-right: 0.5em;
+  content: ' -';
+  color: rgba(128, 128, 128, 0.44);
+}
+
+.keyword span {
+  cursor: pointer;
+}
+
+.keyword.marked span,
+.keyword span.marked {
+  text-decoration: line-through;
+}
+
+[data-hidden] {
+  display: none !important;
+}
 
 
 

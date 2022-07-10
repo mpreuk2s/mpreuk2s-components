@@ -208,6 +208,7 @@
 
                 // update app preview in modal dialog
                 jQuery('#eiv-preview').on('show.bs.modal', () => {
+                    this.collectEditorValues();
                     let previewConfig = this.getValue();
                     previewConfig.ignoreDeplay=true;
                     this.tool.start(Object.assign(previewConfig, {root: this.element.querySelector('#eiv-preview-body')}))
@@ -415,13 +416,11 @@
                     let id = this.extractID(key);
                     if (key.includes("gaptext")) {
                         config.interactions[id].gaptext = value.getValue().inner;
-                        ;
-                    } else if (key.includes("html")) {
-                        config.interactions[id].htmlAsValue = value.getValue().inner;
-                    } else {
-                        //(key.includes("htmltext"))
+                    } else if (key.includes("htmltext")) {
                         config.interactions[id].htmltext = value.getValue().inner;
-                        ;
+                    } else {
+                        //(key.includes("html"))
+                        config.interactions[id].htmlAsValue = value.getValue().inner;
                     }
                 })
             }
@@ -565,7 +564,7 @@
                     text: "Ich bin ein einfacher Text.",
                     htmlAsValue: "",
                     htmltext: "",
-                    gaptext: "ch bin ein einfacher *(T)e(xt)*.Ich bin ein einfacher *Text*.",
+                    gaptext: "Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*",
                     ccmAppDmsURL: "",
                     "showExpectedResponse": true,
                     "showHTTPURL": true,
@@ -688,7 +687,7 @@
                     this.downloadFile("#fileDownloadConfig", "config_"+this.createTimeStampName()+".js", "ccm.files[ 'config_"+this.createTimeStampName()+".js' ] = " + test);
                 },
                 onDownloadOneHTML: () => {
-                    this.downloadFile("#fileAllInOneFile", "index"+this.createTimeStampName()+".html",
+                    this.downloadFile("#fileAllInOneFile", "index_"+this.createTimeStampName()+".html",
                         "<!DOCTYPE html>\n" +
                         "<meta charset=\"utf-8\">\n" +
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
@@ -704,7 +703,7 @@
                 }
                 ,
                 onDownloadHTML: () => {
-                    this.downloadFile("#fileDownloadHTML", "index"+this.createTimeStampName()+".html",
+                    this.downloadFile("#fileDownloadHTML", "index_"+this.createTimeStampName()+".html",
                         "<!DOCTYPE html>\n" +
                         "<meta charset=\"utf-8\">\n" +
                         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +

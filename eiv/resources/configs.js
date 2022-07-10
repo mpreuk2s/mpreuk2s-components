@@ -4,16 +4,25 @@ ccm.files['configs.js'] = {
         "interactions": {
             "1": {
                 "interactionBehavior": "timeframe",
-                "interactionType": "ccmapp",
-                "gaptext": "Ich bin ein einfacher *Text*.",
+                "interactionType": "gaptext",
+                "gaptext": "Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.",
                 "imageUrl": "https//url.com/image.jpg",
                 "timestart": 1,
-                "timestop": 1,
+                "timestop":360,
+                "keywords":true,
             },
         },
         "video": "bHQqvYy5KYo",
         "behavior": "dynamic",
         "layout": "vertical",
+        "helperTemplate": ["ccm.load", "./resources/templates.mjs"],
+        "css": ["ccm.load",
+            [
+                "./resources/default.css",
+                "https://ccmjs.github.io/akless-components/libs/bootstrap-5/css/bootstrap.min.css",
+                //"https://ccmjs.github.io/akless-components//libs/bootstrap-5/css/bootstrap-dark.min.css"
+            ]
+        ],
     },
 
     "online": {

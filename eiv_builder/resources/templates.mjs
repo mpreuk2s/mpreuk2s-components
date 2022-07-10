@@ -97,7 +97,7 @@ export function main(config, builder, events) {
                                 <div class="collapse" id="eiv-info-behavior">
                                     <div class="bg-info text-light rounded p-2">
                                         <pre >Wählen Sie ein Verhalten des Interaktionsbereichs.
-Statisch bedeutet, dass der Bereich immer eingeblendet ist, auch wenn keine Interaktion zum Zeitpunkt dargestellt werden soll.
+Statisch bedeutet, dass der Bereich ist immer eingeblendet, auch wenn keine Interaktion zum Zeitpunkt dargestellt werden soll.
 Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Interaktion dargestellt werden soll.</pre>
                                     </div>
                                 </div>
@@ -452,8 +452,8 @@ export function icBehavoir(config, builder, events, interaction, index) {
                 <tr>
                     <td>
                         <label id="${index}.labelSelectType" for="interactionSelect">Interaktions verhalten :</label>
-                        <span type="button" data-toggle="collapse" data-target="#eiv-info-layout"
-                              aria-expanded="false" aria-controls="eiv-info-layout">
+                        <span type="button" data-toggle="collapse" data-target="#eiv-info-layout-${index}"
+                              aria-expanded="false" aria-controls="eiv-info-layout-${index}">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
                                          class="bi bi-info-circle-fill text-info mb-1"
                                          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -461,10 +461,9 @@ export function icBehavoir(config, builder, events, interaction, index) {
                                               d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                     </svg>
                                 </span>
-                        <div class="collapse" id="eiv-info-layout">
+                        <div class="collapse" id="eiv-info-layout-${index}">
                             <div class="bg-info text-light rounded p-2">
-                                <pre>Wählen Sie ein gewünschten Interaktionsverhalten.
-                                    
+                                <pre>                                    
 Interaktion für ein Zeitpukt: Das Video wird für die Interaktion pausiert.
 Beim wieder abspielen des Videos, verschwindet die Interaktion.
                                     
@@ -523,18 +522,19 @@ export function icGapText(config, builder, events, interaction, index) {
     }
     return html`
         <div class="form-group">
+            <input type="checkbox" style="width: 120px;height: 30px;" class="form-control"
+                   name="interactions.${index}.keywords"
+                   id="httpCall${index}keywords"
+                   ?checked=${interaction.keywords}
+            >
         </div>
         <div class="form-group">
-            <p>Beispiel Text: Ich bin ein einfacher <b>*(T)e(xt)*</b>.Ich bin ein einfacher <b>*Text*</b>.</p>
+            <p>Beispiel Text: Ich esse ein <b>*Apfel*</b>, eine  <b>*Ora(nge)*</b>, eine <b>*B*anane</b> und <b>*Hi(mb)ee(ren)*</b>.</p>
         </div>
         <div class="form-group">
             <div class="row" style="margin-left: 0px;">
-                
-                <p>Ergbenis: Ich bin ein einfacher <input type="text" autocorrect="off" autocapitalize="none" size="4.44"
-                                                maxlength="4" placeholder="_e__">.</p>
-                <p>Ich bin ein einfacher <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none"
-                                                                         size="4.44" maxlength="4" placeholder="">
-                    <!----></span>.</p>
+
+                <p>Ergebnis : Ich esse ein <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none" size="5.550000000000001" maxlength="5" placeholder="_____"><!----></span>, eine  <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none" size="6.66" maxlength="6" placeholder="___nge"><!----></span>, eine <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none" size="1.11" maxlength="1" placeholder="_"><!----></span><span style="background-color: rgb(255, 255, 255); color: rgb(32, 33, 36);">anane und <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none" size="17.76" maxlength="16" placeholder="_________mb__ren"><!----></span></span></p>
             </div>
         </div>
         <div id="gaptext${index}" class="imeditor" }></div>`
@@ -734,16 +734,13 @@ export function answersSingle(config, builder, events, interaction, index) {
 
 
 export function icHTMLText(config, builder, events, interaction, index) {
-    if (JSON.stringify(interaction.interactionType) !== JSON.stringify("htmltext")) {
-        return html`<input type="text" name="interactions.${index}.htmltext" id="hiddenHtml${index}"
-                           value="${interaction.htmltext}" } hidden>`
+    if (JSON.stringify(interaction.interactionType) === JSON.stringify("htmltext")) {
+        return html`
+            <div style="min-height: 100px;">
+                <div id="htmltext${index}" class="imeditor"></div>
+            </div>
+        `
     }
-    return html`
-        <div style="min-height: 100px;">
-            <div id="htmltext${index}" class="imeditor"></div>
-        </div>
-    `
-
 }
 
 export function icCCMApp(config, builder, events, interaction, index) {

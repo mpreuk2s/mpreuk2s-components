@@ -131,7 +131,7 @@
                     },
                     "URL": {
                         "key": "URL",
-                        "title": "URL zur Konfigurationsdatei",
+                        "title": "URL der Konfigurationsdatei",
                         "value": "URL"
                     },
                     "textinput": {
@@ -164,7 +164,6 @@
             let counter = 0;
             this.ready = async () => {
                 $ = Object.assign({}, this.ccm.helper, this.helper);
-                $.use(this.ccm);  // set shortcut to help functions
                 delete this.tool.config.parent;                                            // remove no needed parent reference
                 this.logger && this.logger.log('ready', $.privatize(this, true));      // logging of 'ready' event
             };
@@ -180,7 +179,6 @@
                 config.configid=$.generateKey();
                 this.addIC(config.interactions);
                 if (typeof this.video !== 'undefined') {
-                    // the variable is defined
                     config.video = this.video;
                 } else {
                     config.video = ""
@@ -220,7 +218,6 @@
             };
 
             this.changeEvent = () => {
-
                 editorsMap.forEach((value, key, map) => {
                     let id = this.extractID(key)
                     if (config.interactions[id].interactionType === "gaptext") {

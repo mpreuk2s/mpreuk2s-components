@@ -57,9 +57,10 @@ ccm.files[ 'resources.js' ] = {
   } ,
   "online":  {
 
-    "preview": "Preview",
-    "download": "Download",
-    "downloadOnfile":"",
+    "preview": "Vorschau",
+    "downloadHTML": "Seperate HTML Datei",
+    "downloadConfig": "Seperate Konfigurationsdatei",
+    "downloadOnfile":"Applikation in einer Datei",
     "tool": [ "ccm.component", "https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js" ],
     "eivURL":"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js"
     //  "onfinish": { "restart": true },

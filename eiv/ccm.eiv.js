@@ -1476,10 +1476,6 @@
                 }));
             }
 
-            function onYouTubeIframeAPIReady() {
-                console.log("reedy")
-            }
-
             this.compareContentOfTwoString = (first, second) => {
                 // clean of white spaces, then of new lines = "compare content"
                 // example api returns pretty json , expected value "compressed" json

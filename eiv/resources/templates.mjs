@@ -102,7 +102,7 @@ export function httpCall(instance,tmpHeaders){
                 </tr>
                 <tr>
                     <td>
-                        HTTP Method :
+                        HTTP Methode :
                     </td>
                     <td>
                         <select id="http_method_select" name="http_method" class="col-sm-7">

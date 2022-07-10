@@ -176,7 +176,7 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
             <a id="fileAllInOneFile" hidden></a>
         </form>
         <!-- Modal: Edit Text -->
-        <div id="mcb-edit-modal" class="modal" role="dialog">
+        <div id="mcb-edit-modal" class="modal" role="dialog" style="width: 90%">
             <div class="modal-dialog" role="document">
                 <div class="modal-content"></div>
             </div>
@@ -184,7 +184,7 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
 
         <!-- Modal: Preview -->
         <div class="modal fade" id="eiv-preview" tabindex="-1" aria-labelledby="App Preview" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl" style="min-width:90%;min-height:90%">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
@@ -196,7 +196,7 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
                     </div>
 
                     <!-- Modal Body -->
-                    <div id="eiv-preview-body" class="modal-body p-0 container">
+                    <div id="eiv-preview-body" class="modal-body p-0">
                         <div class="d-flex justify-content-center align-items-center spinner">
                             <div class="spinner-border text-success" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -232,8 +232,7 @@ export function interactionBuild(config, builder, events) {
                             </td>
                         </tr>
                     </table>
-                    <div id="empty${interaction.key}" class="form-group formSection" }>
-
+                    <div id="empty${interaction.key}" class="form-group formSection" }>                        
                     </div>
                 `
             }
@@ -254,7 +253,7 @@ export function icName(config, builder, events, interaction, index) {
             <div style="float: right" class="form-group mb-3">
                 <button type="button" class="btn btn-danger btn-sm" title="Interaktion lösche"
                         @click=${() => events.onDelete(interaction.key)}>
-                    Interaktion löschen #${interaction.counter}
+                    Interaktion #${interaction.counter} löschen
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -322,7 +321,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                 <table>
                                     <tr>
                                         <td>
-                                            <label class="" for="timestartMinute${index}"><b>Ab</b>: Minute </label>
+                                            <label class="" for="timestartMinute${index}" style="width: 84px"><b>Ab</b>: Minute </label>
                                             <input type="number" name="interactions.${index}.timestartMinute"
                                                    class="form-control" id="timestartMinute${index}"
                                                    value="${interaction.timestartMinute}" min="0" max="59" required>
@@ -340,7 +339,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
                                 <table>
                                     <tr>
                                         <td>
-                                            <label class="" for="timestopMinute${index}"><b>Bis</b> Minute :</label>
+                                            <label class="" for="timestopMinute${index}" style="width: 85px"><b>Bis :</b> Minute </label>
                                             <input type="number" name="interactions.${index}.timestopMinute"
                                                    class="form-control" id="timestopMinute${index}"
                                                    value="${interaction.timestopMinute}" min="0" max="59" required>
@@ -499,11 +498,12 @@ export function icGapText(config, builder, events, interaction, index) {
         <div class="form-group">
         </div>
         <div class="form-group">
-            <p>Beispiel : Ich bin ein einfacher <b>*(T)e(xt)*</b>.Ich bin ein einfacher <b>*Text*</b>.</p>
+            <p>Beispiel Text: Ich bin ein einfacher <b>*(T)e(xt)*</b>.Ich bin ein einfacher <b>*Text*</b>.</p>
         </div>
         <div class="form-group">
             <div class="row" style="margin-left: 0px;">
-                <p>Ich bin ein einfacher <input type="text" autocorrect="off" autocapitalize="none" size="4.44"
+                
+                <p>Ergbenis: Ich bin ein einfacher <input type="text" autocorrect="off" autocapitalize="none" size="4.44"
                                                 maxlength="4" placeholder="_e__">.</p>
                 <p>Ich bin ein einfacher <span class="gap"><!----><input type="text" autocorrect="off" autocapitalize="none"
                                                                          size="4.44" maxlength="4" placeholder="">
@@ -723,7 +723,7 @@ export function icCCMApp(config, builder, events, interaction, index) {
 
     return html`
         <div ?hidden=${JSON.stringify(interaction.interactionType) !== JSON.stringify("ccmapp")}>
-            <select class="form-control" style="max-width: 160px;" name="interactions.${index}.ccmAppType"
+            <select class="form-control" style="max-width: 180px;" name="interactions.${index}.ccmAppType"
                     id="interactions.${index}.ccmAppType">
                 ${Object.values(builder.ignore.ccmAppTypes).map(obj => html`
                     <option value="${obj.key}"
@@ -733,16 +733,16 @@ export function icCCMApp(config, builder, events, interaction, index) {
             </select>
             <div ?hidden=${JSON.stringify(interaction.ccmAppType) !== JSON.stringify("DMS")}>
                 <input type="textarea" name="interactions.${index}.ccmAppDmsURL" class="form-control"
-                       id="interactions.${index}.ccmAppDmsURL" placeholder="Pure HTML"
+                       id="interactions.${index}.ccmAppDmsURL" placeholder="DMS APP URL"
                        value="${interaction.ccmAppDmsURL}"
                 />
             </div>
             <div ?hidden=${JSON.stringify(interaction.ccmAppType) !== JSON.stringify("CCM_App_URL_Config")}>
                 <input type="textarea" name="interactions.${index}.ccmAppToolURL" class="form-control"
-                       id="interactions.${index}.ccmAppToolURL" placeholder="ccmAppToolURL"
+                       id="interactions.${index}.ccmAppToolURL" placeholder="CCM APP Javascript URL"
                        value="${interaction.ccmAppToolURL}"/>
                 <option value="">Konfigurationstyp : </option>
-                <select class="form-control" style="max-width: 120px;" name="interactions.${index}.ccmAppConfigFileType"
+                <select class="form-control" style="max-width: 200px;" name="interactions.${index}.ccmAppConfigFileType"
                         id="interactions.${index}.ccmAppType">
                     ${Object.values(builder.ignore.ccmConfigFileTypes).map(obj => html`
                     <option value="${obj.key}"
@@ -823,7 +823,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                     <th>
                         <div class="form-group" style="margin-left: 0px; float: left">
                             <div class="row" style="margin-left: 0px; float: left">
-                                <input type="checkbox" style="width: 120px;" class="form-control"
+                                <input type="checkbox" style="width: 120px;height: 30px;" class="form-control"
                                        name="interactions.${index}.showHTTPURL"
                                        id="httpCall${index}showHTTPURL"
                                        ?checked=${interaction.showHTTPURL}
@@ -923,7 +923,7 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                 </tr>
             </table>
 
-            <table style="width: 60%">
+            <table style="width: 100%">
                 <tr>
                     <th style="width: 120px;">
                         Headers:
@@ -938,8 +938,6 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                                     Header value
                                 </th>
                                 <th>
-                                <th style="width: 120px;">
-                                </th>
                             </tr>
                             ${icHTTPCallHeaders(config, builder, events, interaction, index)}
                         </table>

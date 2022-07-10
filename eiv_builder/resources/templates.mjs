@@ -781,7 +781,7 @@ export function icCCMApp(config, builder, events, interaction, index) {
                        ?hidden=${JSON.stringify(interaction.ccmAppConfigFileType) !== JSON.stringify("URL")}
                 />
                 <textarea type="textarea" name="interactions.${index}.ccmAppConfigFileText" class="form-control"
-                          id="interactions.${index}.ccmAppConfigFileText" placeholder="ccmAppConfigFileText" rows="4"
+                          id="interactions.${index}.ccmAppConfigFileText" placeholder="" rows="4"
                           ?hidden=${JSON.stringify(interaction.ccmAppConfigFileType) !== JSON.stringify("textinput")}>${interaction.ccmAppConfigFileText}</textarea>
 
             </div>

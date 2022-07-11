@@ -92,7 +92,7 @@
                     },
                     "htmltext": {
                         "key": "htmltext",
-                        "title": "HTML Text",
+                        "title": "Text",
                         "value": "htmltext"
                     },
                     "httpcall": {

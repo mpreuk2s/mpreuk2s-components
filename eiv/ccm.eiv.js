@@ -122,7 +122,7 @@
             const timeEndFieldName = "timestop";
             const icTypeTimeFrame = "timeframe"
             const icNameStop = "singleStop"
-            const minimumSize = 400;
+            const minimumSize = 500;
             let keywords_data = [];
             let playerContainerID = "interactionContainer";
             let icsConfContainsErros=false;
@@ -1332,7 +1332,7 @@
                                     {
                                         "id": "response",
                                         "class": "col-sm-9",
-                                        "style": "margin: 0;  padding: 0;  border:solid 1px; ",
+                                        "style": "margin: 0px; padding: 0px; border: 1px solid;",
                                         "tag": "p"
                                     }
                                 ]

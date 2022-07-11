@@ -446,7 +446,7 @@
                 let singleAnswerKey = $.generateKey();
                 let singleAnswer = {key: singleAnswerKey, answer: "4", correct: true};
                 let singleAnswerKey2 = $.generateKey();
-                let singleAnswer2 = {key: singleAnswerKey2, answer: "5", correct: true};
+                let singleAnswer2 = {key: singleAnswerKey2, answer: "5", correct: false};
                 let singleAnswerObject = {};
                 singleAnswerObject[singleAnswerKey] = singleAnswer;
                 singleAnswerObject[singleAnswerKey2] = singleAnswer2;
@@ -454,7 +454,7 @@
                 let multipleAnswerKey = $.generateKey();
                 let multipleAnswer = {key: multipleAnswerKey, answer: "4", correct: true};
                 let multipleAnswerKey2 = $.generateKey();
-                let multipleAnswer2 = {key: multipleAnswerKey2, answer: "5", correct: true};
+                let multipleAnswer2 = {key: multipleAnswerKey2, answer: "5", correct: false};
                 let multipleAnswerObject = {};
                 multipleAnswerObject[singleAnswerKey] = multipleAnswer;
                 multipleAnswerObject[singleAnswerKey2] = multipleAnswer2;

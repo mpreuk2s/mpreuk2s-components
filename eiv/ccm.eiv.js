@@ -696,7 +696,7 @@
             }
 
             this.gaptext = interaction => {
-                //borowed from cloze app
+                //https://github.com/ccmjs/akless-components cloze App Code
                 results = {sections: []};
 
                 var textinteraction = interaction.gaptext;

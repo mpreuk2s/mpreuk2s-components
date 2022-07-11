@@ -8,7 +8,7 @@ ccm.files['configs.js'] = {
                 "gaptext": "Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.Ich esse ein *Apfel*, eine  *Ora(nge)*, eine *B*anane und *Hi(mb)ee(ren)*.",
                 "imageUrl": "https//url.com/image.jpg",
                 "timestart": 1,
-                "timestop":360,
+                "timestop":480,
                 "keywords":true,
             },
         },

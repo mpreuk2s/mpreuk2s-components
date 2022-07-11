@@ -526,7 +526,7 @@ export function icGapText(config, builder, events, interaction, index) {
                    name="interactions.${index}.keywords"
                    id="httpCall${index}keywords"
                    ?checked=${interaction.keywords}
-            >
+            hidden>
         </div>
         <div class="form-group">
             <p>Beispiel Text: Ich esse ein <b>*Apfel*</b>, eine  <b>*Ora(nge)*</b>, eine <b>*B*anane</b> und <b>*Hi(mb)ee(ren)*</b>.</p>

@@ -177,7 +177,7 @@
                 config = {};
                 config.interactions = [];
                 config.configid=$.generateKey();
-                this.addIC(config.interactions);
+                //this.addIC(config.interactions);
                 if (typeof this.video !== 'undefined') {
                     config.video = this.video;
                 } else {

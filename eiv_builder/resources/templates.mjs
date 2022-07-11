@@ -860,9 +860,9 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                         Erwartete Antwort :
                     </th>
                     <th>
-                        <textarea class="form-control" id="expectedResponse${index}"
-                                  name="interactions.${index}.expectedResponse"
-                                  rows="3">${interaction.expectedResponse}</textarea>
+                        <textarea class="form-control" id="expectedValue${index}"
+                                  name="interactions.${index}.expectedValue"
+                                  rows="3">${interaction.expectedValue}</textarea>
                     </th>
                 </tr>
                 <tr>
@@ -877,9 +877,9 @@ export function icHTTPCall(config, builder, events, interaction, index) {
                         <div class="form-group">
                             <div class="row" style="margin-left: 0px;">
                                 <input type="checkbox" style="width: 120px;height: 30px;" class="form-control"
-                                       name="interactions.${index}.showExpectedResponse"
-                                       id="httpCall${index}showExpectedResponse"
-                                       ?checked=${interaction.showExpectedResponse}
+                                       name="interactions.${index}.showExpectedValue"
+                                       id="httpCall${index}showExpectedValue"
+                                       ?checked=${interaction.showExpectedValue}
                                 >
                             </div>
                     </th>

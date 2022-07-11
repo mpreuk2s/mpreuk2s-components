@@ -1340,7 +1340,7 @@
                             {
                                 "tag": "div",
                                 "class": interaction.showHTTPHeaders ? "row mt-1" : "",
-                                "style": +interaction.showExpectedResponse ? '' : 'display:none;',
+                                "style": +interaction.showExpectedValue ? '' : 'display:none;',
                                 "inner": [{
                                     "tag": "p",
                                     "for": "payload",
@@ -1475,7 +1475,7 @@
 
             this.updateHTTPView = (text, response) => {
                 this.setInner("#response", text);
-                this.setInner("#expectedValue", this.interactions[this.currentICID].expectedResponse);
+                this.setInner("#expectedValue", this.interactions[this.currentICID].expectedValue);
                 this.setInner("#responseStatus", "HTTP Status : " + response.status + "");
                 if (this.compareContentOfTwoString(text, this.interactions[this.currentICID].expectedResponse)) {
                     //this.element.querySelector("#response").style.color = "green"

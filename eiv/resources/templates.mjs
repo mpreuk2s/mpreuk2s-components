@@ -54,7 +54,7 @@ export function button(onFeedback) {
 export function buttons(onFeedback,onReset) {
     return html`
         <div id="reset">
-            <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onReset}">Neustart</button>
+            <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onReset}">Nochmal versuchen</button>
         </div>
     `;
 }

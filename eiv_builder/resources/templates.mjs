@@ -108,6 +108,17 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
                                             ${obj.title}
                                         </option>`)}
                                 </select>
+                                
+                            </div> 
+                            <!-- Behavior -->
+                            <div class="form-group">
+                                <button class="btn btn-warning mt-0" type="button"
+                                        data-toggle="collapse"
+                                        data-target="#eiv-ic-editor-collapse" aria-expanded="false"
+                                        aria-controls="eiv-ic-editor-collapse">
+                                    Interaktionen bearbeiten
+                                </button>
+                                
                             </div>
                         </div>
                     </div>

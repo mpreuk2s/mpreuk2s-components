@@ -151,29 +151,29 @@
                         "inner": "Die Konfiguration von den Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
                     },
                     {
-                        "tag": "h5",
+                        "tag": "h4",
                         "class": "error",
                         "inner": "1.Mehrere Interaktionen sind zum selben Start Zeitpunkt definiert. "
                     },
                     {
-                        "tag": "h5",
+                        "tag": "h4",
                         "class": "error",
                         "inner": "2.Ein Interaktion befindet sich innerhalb eines Zeitraums einer anderen Interaktion. "
                     },
                     {
-                        "tag": "h5",
+                        "tag": "h4",
                         "class": "error",
                         "inner": "3.Mehrere Interaktion sind zum selben Start Zeitpunk definiert. "
                     },
                     {
-                        "tag": "h5",
+                        "tag": "h4",
                         "class": "error",
                         "inner": "4.Ein \"Bis\" Zeitpunkt eines Zeitraums ist gleich wie der Start einer andere Interaktion."
                     },
                     {
                         "tag": "h5",
                         "class": "error",
-                        "inner": "6.Ein \"Bis\" eines Zeitraums ist kleiner als der \"Von\"."
+                        "inner": "5.Ein \"Bis\" eines Zeitraums ist kleiner als der \"Von\"."
                     }
                 ]
             };
@@ -1411,6 +1411,7 @@
                 //console.log("checkIfAnswerIsOK");
                 for (const querySelectorAllElement of this.element.querySelectorAll('.answer')) {
                     if (querySelectorAllElement.type === "checkbox") {
+                        querySelectorAllElement.parentNode.style.backgroundColor="";
                         if (querySelectorAllElement.classList.contains("correctAnswer")) {
                             if (querySelectorAllElement.checked) {
                                 querySelectorAllElement.parentNode.style.backgroundColor = "LightGreen"
@@ -1422,7 +1423,7 @@
                             if (querySelectorAllElement.checked) {
                                 querySelectorAllElement.parentNode.style.backgroundColor = "lightpink"
                             } else {
-                                querySelectorAllElement.parentNode.style.backgroundColor = "LightGreen"
+                                //querySelectorAllElement.parentNode.style.backgroundColor = "LightGreen"
                             }
                         }
                     }

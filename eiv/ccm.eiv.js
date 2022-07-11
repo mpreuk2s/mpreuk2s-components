@@ -1010,7 +1010,7 @@
                         "class": "innerRadioQuestion btn btn-primary btn-sm",
                         "onclick": "%checkResult%",
                         "type": "button",
-                        "inner": "Check"
+                        "inner": "Antwort prüfen"
                     }
                 )
                 return copiedHTML;
@@ -1055,7 +1055,7 @@
                         "class": "innerRadioQuestion btn btn-primary btn-sm",
                         "onclick": "%checkResult%",
                         "type": "button",
-                        "inner": "Check"
+                        "inner": "Antworten prüfen"
                     }
                 )
                 return copiedHTML;

@@ -45,9 +45,9 @@ ccm.files[ 'resources.js' ] = {
       ]
     ],
     "preview": "Vorschau",
-    "downloadHTML": "Seperate HTML Datei",
-    "downloadConfig": "Seperate Konfigurationsdatei",
-    "downloadOnfile":"Applikation in einer Datei",
+    "downloadHTML": "Download : Seperate HTML Datei",
+    "downloadConfig": "Download : Seperate Konfigurationsdatei",
+    "downloadOnfile":"Download : Applikation in einer Datei",
     //"onfinish": { "restart": true },
     //"submit": "Submit",
     "shadow": "none",
@@ -58,9 +58,9 @@ ccm.files[ 'resources.js' ] = {
   "online":  {
 
     "preview": "Vorschau",
-    "downloadHTML": "Seperate HTML Datei",
-    "downloadConfig": "Seperate Konfigurationsdatei",
-    "downloadOnfile":"Applikation in einer Datei",
+    "downloadHTML": "Download : Seperate HTML Datei",
+    "downloadConfig": "Download : Seperate Konfigurationsdatei",
+    "downloadOnfile":"Download : Applikation in einer Datei",
     "tool": [ "ccm.component", "https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js" ],
     "eivURL":"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js"
     //  "onfinish": { "restart": true },

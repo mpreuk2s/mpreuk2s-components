@@ -122,7 +122,7 @@ Dynamisch bedeutet, der Interaktionsbereich wird ausgeblendet, wenn keine Intera
                                     data-toggle="collapse"
                                     data-target="#eiv-ic-editor-collapse" aria-expanded="false"
                                     aria-controls="eiv-ic-editor-collapse">
-                                Interaktionen
+                                Interaktionen bearbeiten
                             </button>
                         </h2>
                     </div>

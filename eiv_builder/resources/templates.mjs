@@ -335,7 +335,7 @@ export function icSetTime2(config, builder, events, interaction, index) {
         <div class="form-group">
             <table>
                 <td style="width: 178px;">
-                    <label class="" for="interactionSelect">Interaktions Zeitfenster : </label>
+                    <label class="" for="interactionSelect">Zeitfenster : </label>
                 </td>
                 <td>
                     <table>

@@ -60,12 +60,12 @@
                 "interactionBehavior": {
                     "static": {
                         "key": "singleStop",
-                        "title": "Interaktion für ein Zeitpukt",
+                        "title": "Zeitpukt",
                         "value": "singleStop"
                     },
                     "dynamic": {
                         "key": "timeframe",
-                        "title": "Interaktion über ein Zeitfenster",
+                        "title": "Zeitfenster",
                         "value": "timeframe"
                     },
                 },

@@ -462,7 +462,7 @@ export function icBehavoir(config, builder, events, interaction, index) {
             <table>
                 <tr>
                     <td>
-                        <label id="${index}.labelSelectType" for="interactionSelect">Interaktions verhalten :</label>
+                        <label id="${index}.labelSelectType" for="interactionSelect">Interaktionsverhalten :</label>
                         <span type="button" data-toggle="collapse" data-target="#eiv-info-layout-${index}"
                               aria-expanded="false" aria-controls="eiv-info-layout-${index}">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -475,10 +475,10 @@ export function icBehavoir(config, builder, events, interaction, index) {
                         <div class="collapse" id="eiv-info-layout-${index}">
                             <div class="bg-info text-light rounded p-2">
                                 <pre>                                    
-Interaktion für ein Zeitpukt: Das Video wird für die Interaktion pausiert.
+Zeitpukt: Das Video wird für die Interaktion pausiert.
 Beim wieder abspielen des Videos, verschwindet die Interaktion.
                                     
-Interaktion über ein Zeitraum : Das Video wird nicht pausiert.
+Zeitraum : Das Video wird nicht pausiert.
 Die Interaktion wird über ein Zeitraum dargestellt, nach
 ablauf des Zeitfensters, verschwindet die Interaktion.</pre>
                             </div>

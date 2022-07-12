@@ -84,7 +84,7 @@ export function main(config, builder, events) {
                             </div>
                             <!-- Behavior -->
                             <div class="form-group">
-                                <label class="font-weight-bold" for="eiv-layout">Verhalten vom Interaktionsbereich</label>
+                                <label class="font-weight-bold" for="eiv-layout">Verhalten des Interaktionsbereichs</label>
                                 <span type="button" data-toggle="collapse" data-target="#eiv-info-behavior"
                                       aria-expanded="false" aria-controls="eiv-info-behavior">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16"

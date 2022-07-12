@@ -146,34 +146,33 @@
                 "class": "interactionInner",
                 "inner": [
                     {
-                        "tag": "h5",
+                        "tag": "h3",
                         "class": "error",
                         "inner": "Die Konfiguration von den Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
                     },
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "1.Mehrere Interaktionen sind zum selben Start Zeitpunkt definiert. "
+                        "inner": "1. Mehrere Interaktionen sind zum selben Start Zeitpunkt definiert. "
                     },
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "2.Ein Interaktion befindet sich innerhalb eines Zeitraums einer anderen Interaktion. "
+                        "inner": "2. Eine Interaktion befindet sich innerhalb des Zeitraums einer anderen Interaktion. "
                     },
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "3.Mehrere Interaktion sind zum selben Start Zeitpunk definiert. "
+                        "inner": "3. Mehrere Interaktionen sind zum selben Start Zeitpunk definiert. "
                     },
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "4.Ein \"Bis\" Zeitpunkt eines Zeitraums ist gleich wie der Start einer andere Interaktion."
+                        "inner": "4. Der Endpunkt eines Zeitraums ist identisch wie der Startpunkt einer andere Interaktion."
                     },
                     {
-                        "tag": "h5",
-                        "class": "error",
-                        "inner": "5.Ein \"Bis\" eines Zeitraums ist kleiner als der \"Von\"."
+                        "tag": "h4", "class": "error",
+                        "inner": "5. Der Endpunkt eines Zeitraums liegt vor dem Startpunkt der Interaktion."
                     }
                 ]
             };

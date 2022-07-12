@@ -72,7 +72,7 @@
                 "interactionType": {
                     "single_answer": {
                         "key": "single_answer",
-                        "title": "Aufgabe mit einzel Antwort",
+                        "title": "Aufgabe mit einer richtigen Antwort",
                         "value": "single_answer"
                     },
                     "multiple_answer": {

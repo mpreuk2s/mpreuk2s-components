@@ -47,7 +47,7 @@ export function inputField(value = '', placeholder = '', size = 10, maxlength = 
 export function button(onFeedback) {
     return html`
         <div id="feedback">
-            <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onFeedback}">Feedback</button>
+            <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onFeedback}">Prüfen</button>
         </div>
     `;
 }

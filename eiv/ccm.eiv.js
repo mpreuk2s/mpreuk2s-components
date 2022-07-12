@@ -1274,7 +1274,7 @@
                                         "tag": "label",
                                         "for": "payload",
                                         "class": "",
-                                        "inner": "Input :"
+                                        "inner": "Eingabe / HTTP-Body :"
 
                                     },
                                     {
@@ -1326,7 +1326,7 @@
                                     {
                                         "tag": "div",
                                         "class": "col-sm-3",
-                                        "inner": "Response :",
+                                        "inner": "Antwort :",
 
                                     },
                                     {
@@ -1345,7 +1345,7 @@
                                     "tag": "p",
                                     "for": "payload",
                                     "class": "col-sm-3",
-                                    "inner": "Expected Value :",
+                                    "inner": "Erwartete Antwort :",
 
 
                                 },

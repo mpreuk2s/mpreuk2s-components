@@ -58,8 +58,8 @@ ccm.files[ 'resources.js' ] = {
   "online":  {
 
     "preview": "Vorschau",
-    "downloadHTML": "Download : Seperate HTML Datei",
-    "downloadConfig": "Download : Seperate Konfigurationsdatei",
+    "downloadHTML": "Download : Separate HTML Datei",
+    "downloadConfig": "Download : Separate Konfigurationsdatei",
     "downloadOnfile":"Download : Applikation in einer HTML-Datei",
     "tool": [ "ccm.component", "https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js" ],
     "eivURL":"https://mpreuk2s.github.io/mpreuk2s-components/eiv/ccm.eiv.js"

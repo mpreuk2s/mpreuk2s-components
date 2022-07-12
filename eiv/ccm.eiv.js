@@ -148,12 +148,12 @@
                     {
                         "tag": "h3",
                         "class": "error",
-                        "inner": "Die Konfiguration von den Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Uhrsachen :"
+                        "inner": "Die Konfiguration von den Zeitpunkten der Interaktionen enthält nicht gültige Eingaben. Mögliche Ursachen :"
                     },
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "1. Mehrere Interaktionen sind zum selben Start Zeitpunkt definiert. "
+                        "inner": "1. Mehrere Interaktionen sind zum selben Startpunkt definiert. "
                     },
                     {
                         "tag": "h4",
@@ -163,7 +163,7 @@
                     {
                         "tag": "h4",
                         "class": "error",
-                        "inner": "3. Mehrere Interaktionen sind zum selben Start Zeitpunk definiert. "
+                        "inner": "3. Mehrere Interaktionen sind zum selben Startpunkt definiert. "
                     },
                     {
                         "tag": "h4",

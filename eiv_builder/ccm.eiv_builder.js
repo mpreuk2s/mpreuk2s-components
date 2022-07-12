@@ -60,7 +60,7 @@
                 "interactionBehavior": {
                     "static": {
                         "key": "singleStop",
-                        "title": "Zeitpukt",
+                        "title": "Zeitpunkt",
                         "value": "singleStop"
                     },
                     "dynamic": {

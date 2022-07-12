@@ -749,6 +749,13 @@
                 //this.element.removeChild(element);
             }
 
+            this.encodeURIComponent = (input) => {
+                return encodeURIComponent(input)
+            }
+            this.decodeURIComponent = (input) =>{
+                return decodeURIComponent(input)
+            }
+
         }
     };
 

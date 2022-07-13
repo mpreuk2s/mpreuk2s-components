@@ -1,0 +1,26 @@
+/**
+ * @overview default layout of ccm component for building a fill-in-the-blank text
+ * @author André Kless <andre.kless@web.de.de> 2017-2020
+ * @author Tea Kless <tea.kless@web.de.de> 2017
+ * @license The MIT License (MIT)
+ */
+
+.accordion > .card, form > button {
+  border-radius: 0 !important;
+}
+
+.bg-info {
+  font-size: small;
+}
+
+li b {
+  text-decoration: underline;
+}
+
+*[disabled] {
+  cursor: not-allowed;
+}
+
+*[data-hidden] {
+  display: none;
+}

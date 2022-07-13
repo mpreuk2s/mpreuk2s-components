@@ -1,0 +1,167 @@
+/**
+ * @overview WeblySleek layout of ccmjs-based web component for a fill-in-the-blank text
+ * @author André Kless <andre.kless@web.de> 2017
+ * @license The MIT License (MIT)
+ */
+
+#main {
+  font-family: WeblySleekUI, sans-serif;
+  font-size: 19px;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+
+#text {
+  line-height: 1.6em;
+}
+
+#box {
+  z-index: -1;
+}
+
+#keywords {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background: white;
+  border: 0.1em solid black;
+  padding: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+.keyword:not(:last-child):after {
+  padding-right: 0.5em;
+  content: ' -';
+  color: rgba(128, 128, 128, 0.44);
+}
+
+.keyword span {
+  cursor: pointer;
+}
+
+.keyword.marked span {
+  text-decoration: line-through;
+}
+
+.gap input {
+  font-family: inherit;
+  font-size: 15px;
+  padding-left: 0.2em;
+  letter-spacing: 0.1em;
+}
+
+.gap.correct input {
+  background-color: lime;
+}
+
+.gap.nearly input {
+  background-color: yellow;
+}
+
+.gap.wrong input {
+  background-color: orangered;
+}
+
+#buttons {
+  padding-top: 0.25em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#buttons > div {
+  padding: 0.25em;
+}
+
+button {
+  color: white;
+  background-color: #00709B;
+  padding: 0.5em 1em 0.6em 1em;
+  border: none;
+  font-family: inherit;
+  font-size: 80%;
+  border-radius: 0.5em;
+  transition: background-color 0.4s;
+  letter-spacing: 0.1em;
+}
+
+button:hover:enabled {
+  cursor: pointer;
+  background-color: #00ACEE;
+  border-color: #6FD1F7;
+}
+
+button:active {
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.1em;
+  line-height: 1em;
+}
+
+code {
+  display: block;
+  margin: 0.5em 0;
+  border: 0.1em solid gray;
+  border-radius: 0.5em;
+  background-color: snow;
+  padding: 0.5em;
+  font-size: 80%;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#points {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 15px;
+  font-stretch: expanded;
+}
+
+#buttons {
+  padding-top: 0.25em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#buttons > div {
+  padding: 0.25em;
+}
+
+#conclusion > div {
+  width: 25rem;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+
+#points {
+  margin-right: 0.5em;
+  top: 2px;
+}
+
+#feedback {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+#progress-bar {
+  width: 0;
+  height: 20px;
+  background-color: #4CAF50;
+}

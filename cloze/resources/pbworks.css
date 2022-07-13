@@ -1,0 +1,151 @@
+/**
+ * @overview PBworks-like layout of ccmjs-based web component for a fill-in-the-blank text
+ * @author André Kless <andre.kless@web.de.de> 2017
+ * @license The MIT License (MIT)
+ */
+
+#main {
+  font-family: Segoe UI, 'Lucida Grande', Tahoma, Arial, sans-serif;
+  font-size: 16px;
+}
+
+#keywords {
+  font-family: 'Montserrat', sans-serif;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  border: 0.1em solid rgba(0, 0, 0, 0.53);
+  background-color: #E0F1BA;
+  color: #3C4E10;
+  padding: 0.5em;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.keyword:not(:last-child):after {
+  padding-right: 0.5em;
+  content: ',';
+}
+
+.keyword {
+  cursor: pointer;
+}
+
+.keyword.marked {
+  text-decoration: line-through;
+}
+
+#box,
+#conclusion {
+  padding: 0 0.5em;
+}
+
+#box {
+  padding-bottom: 0.5em;
+}
+
+#text {
+  background: #fff;
+  line-height: 1.6em;
+}
+
+#text li {
+  padding: 0.5em 0.5em;
+}
+
+.gap input {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  margin: 2px;
+  padding: 5px 10px;
+  border-radius: 0.25em;
+  border: 1px solid #a0a0a0;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.gap input:focus {
+  outline: none;
+  box-shadow: 0 0 0.5em 0 #7fb8ff;
+  border-color: #7fb8ff;
+}
+
+.gap.correct input {
+  background-color: lime;
+}
+
+.gap.nearly input {
+  background-color: yellow;
+}
+
+.gap.wrong input {
+  background-color: orangered;
+}
+
+#buttons {
+  padding-top: 0.25em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#buttons > div {
+  padding: 0.25em;
+}
+
+button {
+  color: white;
+  background-color: #5C9A4F;
+  border: none;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+button, #timer {
+  font-family: 'Lucida Grande', Tahoma, Arial, sans-serif !important;
+}
+
+#points {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 15px;
+  font-stretch: expanded;
+}
+
+#buttons {
+  padding-top: 0.25em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#buttons > div {
+  padding: 0.25em;
+}
+
+#conclusion > div {
+  width: 25rem;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+
+#points {
+  margin-right: 0.5em;
+  top: 2px;
+}
+
+#feedback {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+#progress-bar {
+  width: 0;
+  height: 20px;
+  background-color: #4CAF50;
+}

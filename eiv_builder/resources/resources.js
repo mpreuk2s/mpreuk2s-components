@@ -7,6 +7,7 @@
 ccm.files[ 'resources.js' ] = {
 
   "local":   {
+    //Für die ausführung ein Webser benötgit mit dier Konfiguration derzeit
     "css": [ "ccm.load",
       [  // serial
         "https://ccmjs.github.io/akless-components/libs/bootstrap-4/css/bootstrap.css",

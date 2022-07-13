@@ -15,6 +15,7 @@ ccm.files['configs.js'] = {
         "video": "bHQqvYy5KYo",
         "behavior": "dynamic",
         "layout": "vertical",
+        //Für die ausführung ein Webser benötgit mit dier Konfiguration derzeit
         "helperTemplate": ["ccm.load", "./resources/templates.mjs"],
         "css": ["ccm.load",
             [

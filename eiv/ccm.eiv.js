@@ -1,3 +1,4 @@
+
 /**
  *
  * https://github-wiki-see.page/m/ccmjs/ccm/wiki/Loading-of-Resources
@@ -87,8 +88,8 @@
                 ]
             ],
             //  "loading",                    {string} loading - lazy loading: 'lazy', 'eager' or 'auto' (see https://addyosmani.com/blog/lazy-loading/)
-            "height": "100%",
-            "width": "100%",
+            "height": "100%",           //youtube iframe height settings
+            "width": "100%",            //youtube iframe width settings
             //  "vars",                       {object} params - [player parameter]{@link https://developers.google.com/youtube/player_parameters#Parameters}
             //  "onReady",                    {function} onReady - [onReady]{@link https://developers.google.com/youtube/iframe_api_reference#onReady} callback
             //  "onStateChange",              {function} onStateChange - [onStateChange]{@link https://developers.google.com/youtube/iframe_api_reference#onStateChange} callback
@@ -119,20 +120,12 @@
             let icTmpHTTP = null;
 
             const timeStartFieldName = "timestart";
-            const timeEndFieldName = "timestop";
             const icTypeTimeFrame = "timeframe"
             const icNameStop = "singleStop"
             const minimumSize = 500;
             let keywords_data = [];
             let playerContainerID = "interactionContainer";
             let icsConfContainsErros=false;
-            var eivCallbacks = {
-                checkResult: this.checkIfAnswerIsOK,
-                request: this.performHTTPRequest,
-                rmHeaders: this.removeHader,
-                addHeaders: this.addHeader,
-                backToVideo: this.backToVideoFunction
-            };
 
             /**
              * result data
@@ -235,9 +228,6 @@
 
                 // render main HTML structure
                 $.setContent(this.element, $.html(this.html));
-
-                //LIT HTML RENDER
-                //this.helperTemplate.render(this.helperTemplate.mainTemplate(this.settings.videoId,events),this.element);  // prepare main HTML structure
 
                 // embed YouTube Player
                 this.player = new YT.Player(this.element.querySelector('#iframe'), this.settings);
@@ -856,9 +846,6 @@
                     ]
                 }
                 return emptyContainer;
-                //LIT HTML RENDER
-                //this.helperTemplate.render(this.helperTemplate.imageHTMLRender2( this, this ),(this.element.querySelector('#interaction') ));  // prepare main HTML structure
-                //jQuery('#exampleModal').modal();
             }
             this.ccmapp = async interaction => {
                 if (interaction.ccmAppType === "DMS") {
@@ -875,6 +862,7 @@
             }
 
             this.feedbackGapText = () => {
+                //https://github.com/ccmjs/akless-components cloze App Code and adjustments
                 // set initial state for detail information's of the gap results
                 results.sections = [];
                 results.correct = 0;
@@ -933,7 +921,7 @@
                     results.sections.push(event_data);
 
                 });
-                this.helperTemplate.render(this.helperTemplate.buttons(this.feedbackGapText,this.resetGaptext), this.element.querySelector('#buttons'));
+                this.helperTemplate.render(this.helperTemplate.resetButtonGaptext(this.feedbackGapText,this.resetGaptext), this.element.querySelector('#buttons'));
                 // restore original keywords information data
                 keywords_data.forEach(keyword => keyword.forEach(keyword => delete keyword.used));
 
@@ -1388,12 +1376,10 @@
             }
 
             this.playVideo = async () => {
-                //console.log("playVideo");
                 await this.player.playVideo();
             }
 
             this.pauseVideo = async () => {
-                //console.log("pauseVideo");
                 this.player.pauseVideo();
             }
 
@@ -1407,7 +1393,6 @@
             }
 
             this.checkIfAnswerIsOK = () => {
-                //console.log("checkIfAnswerIsOK");
                 for (const querySelectorAllElement of this.element.querySelectorAll('.answer')) {
                     if (querySelectorAllElement.type === "checkbox") {
                         querySelectorAllElement.parentNode.style.backgroundColor="";

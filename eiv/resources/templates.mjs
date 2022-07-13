@@ -51,7 +51,7 @@ export function button(onFeedback) {
         </div>
     `;
 }
-export function buttons(onFeedback,onReset) {
+export function resetButtonGaptext(onFeedback,onReset) {
     return html`
         <div id="reset">
             <button class="btn btn-primary btn-sm" style="margin-bottom: 15px;" @click="${onReset}">Nochmal versuchen</button>

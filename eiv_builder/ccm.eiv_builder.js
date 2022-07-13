@@ -404,10 +404,8 @@
                         }
                         break;
                 }
-                console.log(config)
                 delete result.render;
                 delete result.app;
-                console.log(result);
                 return result;
             };
 
@@ -442,6 +440,8 @@
                 }
             }
 
+
+            //add new interaction
             this.addIC = (interactions) => {
                 let singleAnswerKey = $.generateKey();
                 let singleAnswer = {key: singleAnswerKey, answer: "4", correct: true};
@@ -603,11 +603,16 @@
             this.updateTimestamp =()=>{
                 date= new Date();
             }
+
+            //events wich are used in template.mjs
             const events = {
 
                 onDelete: key => {
                     this.collectEditorValues();
                     delete config.interactions[key];
+                    editorsMap.delete("htmltext"+key);
+                    editorsMap.delete("html"+key);
+                    editorsMap.delete("gaptext"+key);
                     this.renderAndReaddEvents(true)
                 },
                 onAddHTTPCallHeader: (index) => {
@@ -746,16 +751,7 @@
 
                 file.click();
 
-                //this.element.removeChild(element);
             }
-
-            this.encodeURIComponent = (input) => {
-                return encodeURIComponent(input)
-            }
-            this.decodeURIComponent = (input) =>{
-                return decodeURIComponent(input)
-            }
-
         }
     };
 

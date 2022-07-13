@@ -1,9 +1,5 @@
-/**
- * @overview HTML templates of ccm component for building a fill-in-the-blank text
- * @author André Kless <andre.kless@web.de> 2020-2021
- */
 
-import {html, render, repeat, unsafeHTML} from 'https://ccmjs.github.io/akless-components/libs/lit/lit.js';
+import {html, render, repeat} from 'https://ccmjs.github.io/akless-components/libs/lit/lit.js';
 
 export {render};
 
